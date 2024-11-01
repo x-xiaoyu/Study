@@ -1,0 +1,30 @@
+h1 {
+    /* 中间对齐 */
+    text-align: center;
+    /* 字体加粗 */
+    font-weight: normal;
+    text-decoration: orange wavy underline;
+    font-size: 80px;
+    /* 如果第一个字体系统里没有，就用第二个，以此类推 */
+    /* font-family: "Times New Roman", Times, serif; */
+    /* 一个好看的字体hh 但他不是这个font的名字 */
+    font-family: fantasy;
+    /* font-family: monospace; */
+
+
+}
+
+p {
+    text-decoration: brown underline;
+    /* line height 是行高，不是字的大小 */
+    /* double space */
+    line-height: 2;
+
+}
+
+a {
+    /* 去掉下划线 */
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px;
+}

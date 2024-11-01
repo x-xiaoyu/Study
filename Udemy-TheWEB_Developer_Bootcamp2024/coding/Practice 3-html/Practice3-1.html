@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Race Registration</title>
+</head>
+
+<body>
+    <h1>Race Registration!</h1>
+    <form action="">
+        <div>
+            <label for="firstname">First name: </label>
+            <input type="text" name="firstname" id="firstname" required>
+
+            <label for="lastname">Last name: </label>
+            <input type="text" name="lastname" id="lastname" required>
+        </div>
+        <p>Select a Race:</p>
+        <div>
+            <!-- input:radio+tap 会直接显示出来,一定要有value -->
+            <input type="radio" name="race" id="funrun" value="funrun">
+            <label for="funrun">Fun Run 5k</label>
+        </div>
+
+        <div>
+            <input type="radio" name="race" id="half" value="halfrun">
+            <label for="half">Half Marathon</label>
+        </div>
+
+        <div>
+            <input type="radio" name="race" id="fullrun" value="fullrun">
+            <label for="fullrun">Fun Run 5k</label>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+
+        <div>
+            <label for="division">Select Age Group</label>
+            <select name="division" id="division">
+                <option value="kids">Under 18</option>
+                <option value="ya">18-30</option>
+                <option value="adults">30-50</option>
+                <option value="seniors">Over 50</option>
+            </select>
+        </div>
+
+        <button>Register</button>
+
+
+
+
+
+
+    </form>
+</body>
+
+</html>

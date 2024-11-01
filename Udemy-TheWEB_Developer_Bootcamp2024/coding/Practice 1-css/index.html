@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Intro</title>
+    <!-- 链接外部样式表 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 内部样式表 -->
+    <style>
+        h2 {
+            color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 可以inline改变样式，这样不好共享，遇到一次设置一次，不好维护 -->
+    <h1 style="color: purple;">Inline Styles</h1>
+    <button style="background-color: bisque;">I am Button</button>
+
+    <hr>
+    <!-- 可以用style标签，在head里添加style,这样很方便当前文档更改样式，但如果我们想要几个文档都share都话，就得用另外一种了External stylesheet-->
+    <h2>The Style Element with h2</h2>
+    <h2>I am also shared h2 Style Element</h2>
+    <hr>
+
+    <!-- External stylesheet -->
+    <h3>External Style</h3>
+
+    <hr>
+    <button>I am an example of css</button>
+    <button>Example 2 </button>
+    <p>
+        This is a paragraph,this color only change the letter color,not the background color
+    </p>
+    <hr>
+
+
+
+
+
+</body>
+
+</html>

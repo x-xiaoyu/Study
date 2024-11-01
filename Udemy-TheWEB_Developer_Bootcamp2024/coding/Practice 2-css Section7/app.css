@@ -1,0 +1,110 @@
+/* universal selector 全部都给变了，后续不是很方便，因为文件很多，容易把不想变得地方变了 */
+/* * {
+    background-color: cyan;
+} */
+
+body {
+    background-color: #f1faee;
+}
+
+button {
+    font-size: 30px;
+    background-color: #a8dadc;
+}
+
+h1,
+h2 {
+    color: #1d3557;
+}
+
+/* id选择器标记了，在css里使用的时候需要加#号 */
+#signup {
+    background-color: #1d3557;
+    color: #f1faee;
+}
+
+span {
+    color: #457b9d;
+}
+
+.tag {
+    background-color: #e63946;
+    color: #f1faee;
+    font-size: 16px;
+}
+
+.post a {
+    color: #457b9d;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+footer a {
+    color: #e63946;
+}
+
+
+h2+button {
+    font-size: 20px;
+}
+
+/* 这个是在脚标里面的a标签，如果你点击了，就会变成蓝色 */
+footer>a {
+    color: #457b9d;
+}
+
+/* 这个是在input标签里面，如果type是password的话，就会变成绿色 */
+input[type="password"] {
+    color: greenyellow;
+}
+
+/* 这个是在anchor标签里面，如果href里面包含google的话，就会变成蓝色 */
+a[href*="google"] {
+    color: #1d3557;
+}
+
+/* 当你把鼠标放到上面的时候，会显示下划线 */
+.post a:hover {
+    text-decoration: underline;
+}
+
+/* 当你把鼠标点击button但没松开的时候，会变成绿色 */
+.post button:active {
+    background-color: #02c39a;
+}
+
+/* 在post里面的每二个p标签更改背景颜色，其他的p标签不变 */
+.post:nth-of-type(2n) {
+    background-color: #dfe8dc;
+}
+
+/* 设置h2标签的第一个字母的大小 */
+h2::first-letter {
+    font-size: 50px;
+}
+
+/* 设置p标签的第一行的颜色 */
+p::first-line {
+    color: purple;
+}
+
+/* 设置p标签，当你选中几个字的时候，后面会显示选择颜色，像是荧光笔 */
+p::selection {
+    background-color: #fcbf49;
+}
+
+/* 当你把鼠标放到button上的时候，会变成红色 */
+.post button:hover {
+    background-color: #e63946;
+    color: #f1faee;
+}
+
+/* 当你把鼠标放到button上的时候，会变成橄榄绿 */
+button:hover {
+    background-color: olive;
+}
+
+/* 当你把鼠标放到button上的时候，会变成紫色 important是优先级最高的，所以所有button都会变 无论你之前设置了什么 */
+button {
+    background-color: magenta !important;
+}

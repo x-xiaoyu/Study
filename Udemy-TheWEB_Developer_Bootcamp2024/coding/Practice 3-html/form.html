@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Demo</title>
+</head>
+
+<body>
+    <h1>Form Demo</h1>
+
+    <!-- 在这里写form就提交不了，只能点击 -->
+    <button>Outside form</button>
+
+    <form action="/tacos">
+        <p>
+            <!-- label是输入框前面的文字 如果for里写的跟id名字不一样，那么当你按到label上的username 是不会在框框里显示的（相关联） -->
+            <label for="username">Enter a username:</label>
+            <!-- placeholder是在输入框没有输入时显示的内容 -->
+            <!-- username是当你进行搜索时，地址栏会显示的东西，比如搜索（提交）chikcen，地址栏会显示：/tacos?username=chicken -->
+            <!-- name是当你提交时，后台Server会收到的东西，比如搜索（提交）chikcen，后台会收到：username=chicken -->
+            <!-- 你在username/password/color/number输入完，提交表单后，地址栏会显示：/tacos?username=你输入的chicken&password=123&color=你选择的number=你输入的 -->
+            <input id="username" type="text" placeholder="请输入名字" name="username">
+        </p>
+
+        <p>
+            <label for="password">Enter your password:</label>
+            <input type="password" placeholder="password" id="password">
+        </p>
+
+        <p>
+            <label for="color">Pick your color:</label>
+            <!-- 选颜色 -->
+            <input type="color" id="color">
+        </p>
+        <p>
+            <label for="number">Enter a number:</label>
+            <!-- 可以输入数字并且按箭头调整 -->
+            <input type="number" id="number" min="1" max="1000" step="5">
+            <!-- 可以设置范围min就是最小值，max就是最大值，不设置的话就是默认的无限 -->
+            <!-- step是用来调节度的，比如设置5，从1开始，1/6/11/。。。等-->
+        </p>
+
+        <!-- 在form里面的button默认是submit，如果不想要submit，可以加上type="button"
+        并且这个是真的会提交form -->
+        <button>Submit</button>
+        <button type="button">改Submit变button</button>
+
+        <!-- 两种方式的提交 -->
+        <!-- button的可以简单的改名字 -->
+        <button>Submit</button>
+        <!-- 但input的不可以,需要加value=要改的名字 -->
+        <input type="submit" value="Click me">
+    </form>
+
+    <!-- 开始写小练习 提交表单 进入到别的链接-->
+    <h2>Hijacking Search</h2>
+    <h3>Search Reddit</h3>
+    <form action="https://www.reddit.com/search">
+        <input type="text" name="q">
+        <button>Search Reddit</button>
+    </form>
+    <h3>Search Youtube</h3>
+    <form action="https://www.youtube.com/results">
+        <input type="text" name="search_query">
+        <!-- 这里为什么name是search_query，而不是q呢？因为youtube的搜索框的name是search_query -->
+        <button>Search Youtube</button>
+    </form>
+
+    <h2>More Inputs!</h2>
+    <form action="/birds">
+        <!-- 这里的birds是一个路径，去到一个page -->
+        <input type="checkbox" name="agree_tos" id="agree" unchecked>
+        <!-- input一个东西，他可以有checkbox，命名为agree turn to something, id label 就是agree, 末尾的checked是刷新页面进来，默认为已选上，也可以写unchecked（默认为未选） -->
+        <label for="agree">I agree to everthing</label>
+        <!-- 这里的for是跟id相关联的，如果id跟for不一样，那么当你按到label上的agree 是不会在框框里显示的（相关联） -->
+        <button>Submit</button>
+        <!-- 添加一个提交表格的按钮，当你提交后，地址栏会显示：/birds?agree_tos=on，也就是name的东西 -->
+
+        <h2>Input Radio</h2>
+        <p>
+            <input type="radio" name="" id="">
+            <input type="radio" name="" id="">
+            <br>
+            <!-- TIPS：输入inp+tab就会快速出现<input type="text" name="" id=""> -->
+            <label for="xs">XS:</label>
+            <input type="radio" name="size" id="xs">
+            <!-- 此时如果你点击XS，那么地址栏会显示：/birds?size=on -->
+
+            <label for="s">S:</label>
+            <input type="radio" name="size" id="s" value="s">
+            <!-- 为了解决地址栏显示：/birds?size=on，我们需要用value来改变，比如value="s"，那么地址栏就会显示：/birds?size=s -->
+            <!-- 这个时候如果你点击S，那么地址栏会显示：/birds?size=s -->
+
+            <label for="m">M:</label>
+            <input type="radio" name="size" id="m" value="m">
+            <!-- shift+option+上下箭头可以快速复制一行 -->
+            <!-- 如果想让他们相关联，就需要在name里设置成一个名称 -->
+        </p>
+
+        <h2>Button-Select</h2>
+        <p>
+            <label for="meal">Please Select an Entree</label>
+            <select name="meal" id="meal">
+                <option value="fish">Fish</option>
+                <!-- 这个时候提交后，地址栏会显示：/birds?meal=fish -->
+                <option value="veg" selected>Vegetable</option>
+                <!-- 这里的selected是默认选中的意思，如果你不想要默认选中，就不要写selected -->
+                <option value="apple">Apple</option>
+                <option value="steak">Steak</option>
+            </select>
+        </p>
+
+
+        <h2>Button-Range</h2>
+        <p>
+            <label for="water">Amount of Water</label>
+            <input type="range" name="water" id="water">
+            <!-- range是一个滑动条，可以滑动选择，很丝滑 -->
+            <label for="cheese">Amount of Cheese</label>
+            <input type="range" name="cheese" id="cheese" min="1" max="10">
+            <!-- 这里的min是最小值，max是最大值。拉动的时候会一格一格的 -->
+            <label for="coke">Amount of Coke</label>
+            <input type="range" name="coke" id="coke" min="1" max="100" value="75">
+            <!-- value是默认进来时候显示的值 -->
+            <label for="cake">Amount of Cake</label>
+            <input type="range" name="cake" id="cake" min="1" max="20" step="2">
+            <!-- step是用来调节度的，当你选1的时候，其实是2，地址栏会显示选了多少-->
+        </p>
+
+        <h2>Textarea</h2>
+        <p>
+            <label for="">Any Special Request?</label>
+            <br>
+            <textarea name="request" id="request" cols="30" rows="10" placeholder="Enter here">
+        </textarea>
+            <!-- cols是列数，rows是行数 -->
+
+        </p>
+    </form>
+
+    <h2>Validations Demo</h2>
+    <form action="/dummy">
+        <label for="first">Enter First Name</label>
+        <input type="text" name="first" id="first" required>
+
+        <!-- required是必填的意思，如果不填，就会弹出来提示，填完信息之后才会成功提交 -->
+        <p>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" minlength="5" maxlength="10" required>
+            <!-- minlength是最小长度，maxlength是最大长度 -->
+        </p>
+        <p>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" required>
+            <!-- 这里的email是一个type，如果你输入的不是email，那么就会弹出来提示 -->
+            <br>
+            <label for="url">url: </label>
+            <input type="url" name="url" id="url" required>
+            <!-- 这里的url是一个type，如果你输入的不是url，那么就会弹出来提示 -->
+
+        </p>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+h3 {
+    /* 可以用rgb/Hex16进制/英文单词 */
+    color: rgb(95, 55, 37);
+    background-color: azure;
+
+}
+
+
+button {
+    color: teal;
+    background-color: olive;
+    background: yellow;
+}
+
+p {
+    color: pink;
+    background-color: #581845;
+    /* background 和background-color 不一样，background可以设置图片等 */
+}
+
+body {
+    /* background-color: #000000; */
+    /* shortcut for color: */
+    /* 000000: 000 */
+    /* cc55ee: c5e */
+    /* 00ff00: 0f0 */
+    /* 0000ff: 00f */
+
+}
