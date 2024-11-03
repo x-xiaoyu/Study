@@ -1,3 +1,135 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
 html {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
@@ -29,6 +161,8 @@ body {
     /* 从这里开始就是把web页面转为mobile页面 */
     display: flex;
     flex-direction: column;
+    /* 优先移动端 所以设置column 不然是row */
+
     text-align: center;
     /* text居中对齐 */
     text-transform: uppercase;
@@ -62,12 +196,11 @@ body {
     /* 把title下面的几行字 的margin给改了 */
     margin: 50px 0 25px;
     color: #016ff9;
-
 }
 
 .pricing-features-item {
     /* 把字的细节给改了 */
-    font-weight: 600px;
+    font-weight: 600;
     letter-spacing: 1px;
     font-size: 12px;
     line-height: 1.5;
@@ -111,3 +244,28 @@ body {
     background-color: #269aff;
     color: white;
 }
+
+@media(min-width:900px) {
+    .panel {
+        flex-direction: row;
+
+    }
+
+    .pricing-plan {
+        border-bottom: none;
+        border-right: 1px solid #e1f1ff;
+        padding: 25px 50px;
+        /* 限制了每个盒子距离边界的距离 */
+    }
+
+    .pricing-plan:last-child {
+        border-right: none;
+
+    }
+}
+
+
+/* 跟视频一起打 最后的li还是会显示序列点 原因是源文档里的前半部分要复制进来。。
+    或者在pricing-features-item里添加list-style-type: none;
+                                    padding: 0;
+ */
