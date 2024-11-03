@@ -26,5 +26,27 @@ body {
     max-width: 960px;
     /* 这两行意思是宽度为100%保持这个size，直到当浏览器页面逐渐变窄到960px的时候就会改变 */
 
+    /* 从这里开始就是把web页面转为mobile页面 */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* text居中对齐 */
+    text-transform: uppercase;
+    /* text全部转换为大写 */
+}
 
+.pricing-plan {
+    border-bottom: 1px solid #e1f1ff;
+}
+
+/* 不想要最后一个border，所以特指这个border */
+.pricing-plan:last-child {
+    border-bottom: None;
+}
+
+.pricing-img {
+    margin-bottom: 25px;
+    /* 图片底下距离为25px */
+    max-width: 100%;
+    /* 保持不变 */
 }
