@@ -86,3 +86,28 @@ body {
     font-size: 32px;
     font-weight: 700;
 }
+
+.pricing-button {
+    border: 1px solid #9dd1ff;
+    border-radius: 10px;
+    color: #348efe;
+    display: inline-block;
+    padding: 15px 35px;
+    text-decoration: none;
+    /* 下面的横线没有了 */
+    margin: 25px 0;
+    /* 整体上下间距25px */
+    transition: background-color 200ms easer-in-out;
+    /* 鼠标悬停过渡时间 */
+}
+
+.pricing-button:hover,
+.pricing-button:focus {
+    background-color: #e1f1ff;
+
+}
+
+.pricing-button.is-featured {
+    background-color: #269aff;
+    color: white;
+}
