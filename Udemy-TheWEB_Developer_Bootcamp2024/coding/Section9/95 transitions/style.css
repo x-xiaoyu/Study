@@ -12,7 +12,7 @@
     /* 形状持续1s变，然后颜色再持续一秒变 */
 
 }
-
+/* 悬浮动作 */
 .circle:hover {
     background-color: brown;
     border-radius: 200px;
