@@ -1,0 +1,26 @@
+body {
+    background: #f5d9d5;
+    /* 7-1 改变字体 */
+    font-family: "Nuito", sans-serif;
+}
+
+/* 7-2 因为main导航栏和navbar-brand都是这个颜色 然后mainNavbar有自己的字号设定 所以分开写 */
+#mainNavbar {
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+/* 7-3 在没增加这个之前 在鼠标经过之前是半透明的 想要全白 */
+#mainNavbar .nav-link {
+    color: white;
+}
+
+/* 7-4 当鼠标经过时，想要变色 */
+#mainNavbar .nav-link:hover {
+    color: #EA1C2C;
+}
+
+/* 7-2 */
+#mainNavbar .navbar-brand {
+    color: #EA1C2C;
+}
