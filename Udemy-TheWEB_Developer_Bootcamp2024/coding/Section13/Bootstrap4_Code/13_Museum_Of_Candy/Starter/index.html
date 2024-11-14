@@ -42,6 +42,36 @@
     </div>
   </nav>
 
+  <!-- 8. 制作一个容器 让下面的文字等放在里面 -->
+  <!-- container-fluid是因为网页中图片是到底的，没有边距什么的，所以是fluid 8-3因为最开始container默认会有padding，所以设置padding px-0 就没了 -->
+  <section class="container-fluid px-0">
+    <!--8-1 首先图片是一行 因为有两个图片 形成两列 又对半分 即一个图片占6/12 8-4 因为这个内容字是想让他显示在主页面上的 align-items-center就会让他自动对齐，还有align-items-end等-->
+    <div class="row align-items-center">
+      <!-- 8-7 最开始只有col-6 但因为要调整浏览器大小 所以要设置变化的断点 -->
+      <div class="col-lg-6">
+        <!-- 8-8因为一个一个调整h2太麻烦了 所以直接加了一个div 一起调整 8-9 增加d-none就是不显示，d-lg-block是等到浏览器页面放大了再显示 8-13 mt-5 为了给字和nav有些距离->-->
+        <div id="headingGroup" class="text-white text-center d-none d-lg-block mt-5">
+          <!-- 8-5 上下居中对齐完还想左右对齐 那就是text-center 这个之后移动到div里了 -->
+          <!-- 8-10 最开始没有display-2 这是个默认的设置标题大小的东西 -->
+          <!-- 8-12 搞七个 -->
+          <h1 class="display-4">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+            <h1 class="display-4">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+              <h1 class="display-4">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+                <h1 class="display-4">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+                  <h1 class="display-4">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+                    <h1 class="display-4">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+                      <h1 class="display-4">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+        </div>
+      </div>
+      <!-- 8-7 同上最开始只有col-6 但因为要调整浏览器大小 所以要设置变化的断点 -->
+      <div class="col-lg-6">
+        <!-- 8-2 增加了img-fluid就会根据当前的大小调整图片的大小 -->
+        <img class="img-fluid" src="./imgs/hand2.png" alt="">
+      </div>
+
+    </div>
+
+  </section>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

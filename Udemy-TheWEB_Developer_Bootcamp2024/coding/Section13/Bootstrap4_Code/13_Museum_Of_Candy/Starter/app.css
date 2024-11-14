@@ -24,3 +24,19 @@ body {
 #mainNavbar .navbar-brand {
     color: #EA1C2C;
 }
+
+/* 8-10 设置span里的东西 */
+#headingGroup span {
+    color: #EA1C2C;
+}
+
+
+/* 8-13 设置浏览器变 字也变 */
+@media(max-width:1200px) {
+
+    /* 8-11改变字体粗细 */
+    #headingGroup h1 {
+        font-weight: 100;
+        font-size: 3rem;
+    }
+}
