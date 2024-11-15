@@ -198,7 +198,16 @@ Comparisons
 - !== strict non-equal
 
 
+console.log()
+Prints arguments to the console.
 
+alert(")
+alert 将向用户打印一些内容，但不在控制台中打印，会跳出来一个框
+
+prompt
+let userInput = prompt("please enter a number")  //然后就会立马蹦出来一个提示框 让用户输入数字
+（用户输入20）
+- userInput return 20
 
 
 
