@@ -1,3 +1,4 @@
+Section 14 & 15 & 16
 * Primitive Type in JS
 - Number
 - String
@@ -189,8 +190,12 @@ Math.random() gives us a random decimal etween 0 and 1(non-inclusive)
 - Math.random();//0.8278743843
 
 
-
-
+Section 16
+Comparisons
+- == equality
+- != not equal
+- === strict equality
+- !== strict non-equal
 
 
 
