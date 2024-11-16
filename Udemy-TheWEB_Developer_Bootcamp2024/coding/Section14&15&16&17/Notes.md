@@ -1,4 +1,4 @@
-Section 14 & 15 & 16
+Section 14 & 15 & 16 & 17
 * Primitive Type in JS
 - Number
 - String
@@ -209,13 +209,66 @@ let userInput = prompt("please enter a number")  //然后就会立马蹦出来�
 （用户输入20）
 - userInput return 20
 
+Conditions
+if statement
+- let rating = 3;
+- if(rating ===3 ){
+    console.log("You are a superstar)
+}
+
+else if statement
+- if(rating ===3 ){
+    console.log("You are a superstar)
+}else if(rating ==5){
+    console.log('5')
+}
+
+else statement
+- if(rating ===3 ){
+    console.log("You are a superstar)
+}else if(rating ==5){
+    console.log('5')
+}else{
+    console.log('no')
+}
+
+Nesting
 
 
+* Truthy and Falsy values
+- All js values have an inherent truthyness or falsyness about them
+- falsy values:
+    - false
+    - 0
+    - "" (empty string)
+    - null
+    - undefined
+    - NaN
+- Everything else is truthy!
 
+* Logical Operators
+- && || !
+- AND OR NOT
 
+AND (BOTH RIGHT are true (left and right))
+- 1<=4 && 'a' === 'a'; //true
+- 9>10 && 9 >= 9; //false
+- 'abc'.length === 3 && 1+1 === 4; //false
 
+OR(Only one side needs to be true)
+- 1 !== 1 || 10 === 10 //true
+- 10/2 === 5 || null //true
+- 0 || undefined //false
 
+NOT
+! expression returns tru if expression if false
+- !null //true
+- !(0===0) //false
+- !(3 <= 4>) //false
 
+Switch Statement(not use in real word)
+The switch statement is another control-flow statement that can replace multiple if statements.
+Good to know about!
 
 
 
