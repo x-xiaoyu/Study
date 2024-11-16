@@ -270,15 +270,103 @@ Switch Statement(not use in real word)
 The switch statement is another control-flow statement that can replace multiple if statements.
 Good to know about!
 
+Arrays
+Ordered Collections of values.
+- List of comments on IG post.
+- Collection of levels in a game
+- Songs in a playlist
+
+- let students = []; //to make an empty array
+- let colors = ['red', 'orange', 'yellow']; //an array of strings
+- let lottoNums = [11,23,21,54,665,21]; // an array of numbers
+- let stuff = [true, 68, 'cat', null]; // a mixed array
+
+Arrays are indexed!
+Each element has a corresponding index(counting starts ar 0)
+
+如何把数据搞出来
+- let colors = ['red', 'orange', 'yellow']; //an array of strings
+- colors[2]
+- return 'yellow'
+
+如何替换array里的信息
+const leaderboard = ['Harry', 'Lua', 'Hermione', 'Bellatrix']; //DON'T TOUCH THIS LINE!
+    leaderboard[1] = 'Luna'; // Update the second element to "Luna"
+    leaderboard[3] = 'Draco'; // Update the last element to "Draco"
+    console.log(leaderboard);
+
+Array Methods
+- Push: add to end
+- Pop: remove from end
+- Shift: remove from start
+- Unshift: add to start
+
+Push
+- let movieLine = ['Tom','Nancy']
+    - movieLine[2] = 'Pablo' // movieLine = ['Tom','Nancy','Pablo'] 也是增加的一个方法 但容易被替换
+    - movieLine.push('Susie') // movieLine = ['Tom','Nancy','Pablo','Susie'] add to the end
+
+Pop
+    - movieLine.pop() // movieLine = ['Tom','Nancy','Pablo'] 不需要任何参数 直接从最后一个删
+
+Shift:remove from start
+    - movieLine.pop() // movieLine = ['Tom','Nancy','Pablo'] 不需要任何参数 直接从最后一个删
+    - movieLine.shift() // "Tom" 会告诉这个函数返回的是被移除的元素，第一个字符串
+
+Unshift: add to start
+
+More Methods
+- concat: merge arrays
+    - const array1 = ['a','b','c'];
+    - const array2 = ['a','b','c'];
+    - const array3 = array1.concat(array2); 
+    - console.log(array3); // ['a','b','c','a','b','c'];
+
+- includes: look for a value
+    - const array1 = ['a','b','c'];
+    - console.log(array1.includes(2)); // expected output:true
+    - console.log(array1.includes('a')); // expected output:true
+
+- indexOf: just like string.indexOf
+    - "Blue".indexOf('B') // return 0
+    - "Blue".indexOf('3') // return 'e'
+    - "Blue".indexOf('0') // return -1 which is false 不成立
+
+- join: creates a string from an array
+
+- reverse: reverses an array
+    - const array1 = ['a','b','c'];
+    - array1.reverse() // ['c','b','a']
+
+- slice: copies a portion on an array
+    - const array1 = ['a','b','c'];
+    - array1.slice(start,end) 这俩都是option的，没写就是展示出完整的
+    - array1.slice(0,1) // ['a','b']
+
+- splice: removes/replaces elements
+    - const months = ['Jan','March','April','June'];
+    - months.splice(1,0,'Feb');  //inserts at index 1
+    - console.log(months); //expected output: Array ['Jan','Feb','March','April','June'];
+
+    - months.splice(4, 1,'May');  //replaces 1 element at index 4
+    - console.log(months); //expected output: Array ['Jan','Feb','March','April','May'];
+
+- sort: sorts an array
 
 
+在数组中 == === 都会return false
+因为里面的reference/address不一样 它不管[]里面有什么 都是false
 
+Conts & Array
+一般情况下常数不能改变 但array情况不一样
+- const nums = [1,2,3,4];
+ nums.push(4)// 这样可以
+ 但如果新assigned nums = [1,2,3,4] 即使肉眼看着一样，但实际已经变了
+这个例子里是nums本身不变，[]不变， 里面内容变了也是可以的
 
-
-
-
-
-
+Nesting Array:井字棋游戏
+syntax: xxx[1][2][3]
+替换的话直接——定位=”“ 就会变了
 
 
 
