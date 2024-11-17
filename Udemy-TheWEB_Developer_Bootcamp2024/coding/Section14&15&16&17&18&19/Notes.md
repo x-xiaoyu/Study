@@ -442,6 +442,57 @@ Arrays+Obejct 这个组合非常强大，也很常见！！！！
 }
 属于一层套一层了。。。
 
+Section 19 Loops
+For loop
+- for(let i = 1; i<=10l i++>){
+    console.log(i)
+}
+- for([initialExpression];
+    [condition];
+    [incrementExpression];
+)
+
+
+Looping over Arrays
+- const animals = ['lion','tigers','bears'];
+- for (let i = 0; i < animals.length; i++){
+    console.log(i, animals[i]);
+    }
+// 0 'lions'
+// 1 'tigers'
+// 2 'bears'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
