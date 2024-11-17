@@ -369,5 +369,79 @@ syntax: xxx[1][2][3]
 替换的话直接——定位=”“ 就会变了
 
 
+Section 18
+Objects
+- Objects are collections of properties（属性，一个属性就是两条信息，一个key，比如标签，一个值，他们形成了一对，而属性就是这帮形成pair的东西）.
+- Properties are a key - value pair
+- Rather than accessing data using an index, we use custom keys.
+
+Example:
+- const fitBitData = {
+    totalStep       :   30943,
+    totalMiles      :   222.9,
+    avgCalorieBurn  :   4999,
+    workOutThisWeek :   '2 of 7',
+    avgGoodsSleep   :   '3:39',
+};
+这里面一对一对的总体就叫做properties
+里面一定是逗号分隔！！！！不是分号
+Properties = key + value
+
+[]与{}
+当定义新的properties的时候用{}
+当访问这个properties的时候用[]，还得加""， 如果不加的话，就会转变成String？
+也可以通过xx.xx进行访问
+
+Example:
+- person{firstName: "Mike", lastName: "Jagger"}; //创建properties
+- person["firstName"] //访问firstName
+    - return "Mike"
+- person.firstName //访问firstName
+    - return "Mike"
+- person['firstName'] //访问firstName
+    - return "Mike"
+
+Valid Keys
+All keys are converted to Strings*
+*Except for Symbols, which we havenn't convered yet
+
+访问properties 的例子！！！！！一定要记着！
+//PLEASE DON'T TOUCH THIS LINE!
+const restaurant = {
+    name: 'Ichiran Ramen',
+    address: `${Math.floor(Math.random() * 100) + 1} Johnson Ave`,
+    city: 'Brooklyn',
+    state: 'NY',
+    zipcode: '11206',
+}
+
+//YOUR CODE GOES DOWN HERE:
+const fullAddress = `${restaurant.address}, ${restaurant.city}, ${restaurant.state} ${restaurant.zipcode}`;
+
+console.log(fullAddress); // Example output: "64 Johnson Ave, Brooklyn, NY 11206"
+
+上面是accessing data，下面是添加新信息或者更新信息的
+其实就是引入然后后面写上你想改的就行
+midterm = {
+    tom = 89,
+    alex = 20,
+}
+- midterms.tom = 'C+' //然后就会从89变c+了
+- midterms.nancy = 90 //这样会直接在里面添加一个信息
+
+Arrays+Obejct 这个组合非常强大，也很常见！！！！
+- const data = {
+    xxx: [
+        {
+           xxx: [   ],
+           xxx: [   ]
+        }
+    ],
+    xxx: [],
+    xxx: [],
+}
+属于一层套一层了。。。
+
+
 
 
