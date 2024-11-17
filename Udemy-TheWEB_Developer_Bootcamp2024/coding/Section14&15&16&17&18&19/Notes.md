@@ -462,16 +462,46 @@ Looping over Arrays
 // 1 'tigers'
 // 2 'bears'
 
+Nested Loops
+
+While Loop with break
+While loops continue running as long as the test condition is true
+- let num = 0;
+- while(num <10){
+    console.log(num);
+    num++;
+}
+
+For Of
+A nice and easy way of iterating over arrays(or other iterable objects)
+- for (variable of iterable){
+    statement
+}
+
+- const subreddits = ['books','video','chickens','funny']
+- for (let sub of subreddites){
+    console.log(sub)
+}
+- for( let subreddit of subreddits){
+    console.log(`Visit reddit.com/r/${subreddit}`)
+}
 
 
+For in 
+const testScores{
+    tom:32,
+    vonnie:50,
+    nadia:22
+}
+tom/vonnie/nadia是key
+//only give the key of the value
+- for(let person in testScores){
+    console.log(`$[person] scored ${testScores[person]}`);
+} // OUTPUT: tom scored 32
 
-
-
-
-
-
-
-
+for(let score of Object.value(testScores)){
+    console.log(score)
+} //会返回所有成绩 不带人名的
 
 
 
