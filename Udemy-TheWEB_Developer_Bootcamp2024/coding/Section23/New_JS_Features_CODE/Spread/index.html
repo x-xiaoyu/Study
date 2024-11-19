@@ -13,3 +13,121 @@
 </body>
 
 </html>
+
+
+这个短时间很难解释，了解即可
+Spread 语法允许一个迭代对象，
+比如一个数组，在需要零个或多个函数调用参数或数组常量元素的地方展开，
+或者一个对象表达式，在需要零个或多个对象常量键值对的地方展开。
+Spread syntax allows an iterable such as
+an array to be expanded in places where zero or more arguments (for function calls) or elements( for array literals) are
+expected,
+or an object expression to be expanded in places where zero or more key-value pairs(for object literals) are expected.
+
+__________________________________________________________________________________________________________
+
+Spread for function calls
+expands an iterable(array, string, etc.) into a list of arguments
+
+cons nums = [9,3,2,8];
+Math.max(nums); //NaN!
+// use Spread!
+__________________________________________________________________________________________________________
+
+Spread的语法就是三个点...
+Math.max(...nums); //67
+// same sa calling: Math.max(9,3,2,8)
+
+console.log(...nums) // 9 3 2 8
+console.log(...'hello') // h e l l o
+__________________________________________________________________________________________________________
+
+Spread in Array literals
+Create a new array using an existing array. Spreads the elements from one array into a new array.
+const nums[1] = [1,2,3];
+const nums[2] = [4,5,6];
+
+[...nums1, ...nums2];
+//[1,2,3,4,5,6]
+
+['a', 'b', ...nums2];
+//['a', 'b',4,5,6]
+
+[...nums1, ...nums2, 7,8,9];
+//[1,2,3,4,5,6,7,8,9]
+__________________________________________________________________________________________________________
+
+Spread in Object literals 在对象字面值中使用spread
+Copies properties from one object into another object literal.
+
+const feline = {legs:4, family: 'Felidar'};
+const canine = {family: ' Caninae', furry: true};
+
+const dog = { ...canine, isPet: true};
+//{family:"Caninae", furry: true, isPet:true}
+
+const lion = {...feline, genus:'Panthera'};
+//{legs:4, family:"Felidae", genus:"Panthera"}
+
+const catDog = {...feline, ...canine};
+//{legs:4, family: "Caninae", furry: true}
+
+__________________________________________________________________________________________________________
+
+Rest
+It looks like spread, but it's not! 因为它也是用了三个点，但他的意思完全不同。
+
+这个要先回顾一下arguments object
+- Available inside every function.
+- It is an array-like object
+- has a length property
+- does not have array methods like push/pop
+- contains all the arguments passed to the function
+- not available inside of arrow functions!
+他会自动保存传递给函数的所有参数
+
+例子：
+function sumALl(){
+let total = 0;
+for(let i = 0; i < arguments.length; i++){ total +=arguments[i]; } return total; } sumAll(8,4,3,2); // 17 sumAll(2,3);
+    //5 _________________________________________________________________________________________________________ Rest
+    Params Collects all remaining arguments into an actual array rest运算符,也就是三个点,放在参数列表中,它会收集所有剩余的参数 function
+    sumAll(...nums){ let total=0; for(let n of nums) total +=n ; return total; } sumAll(1,2); // 3 sumAll(1,2,3,4,5);
+    //15 例子2: function raceResults(gold, sliver, ...everyoneElse){ console.log(`Gold Medal goes to: ${gold}`)
+    console.log(`Sliver medal goes to: ${sliver}`) console.log(`And thanks to everyone else:${everyoneElse}`) }
+    raceResults('tom','nancy','josh','tim','Susie','David') //会把所有人都显示出来
+    _________________________________________________________________________________________________________
+    Destructuring A short, clean syntax to 'unpack' : - Values from arrays - Properties from objects into istinct
+    variables. const scores=[99,98,94,22,1]; const highScore=scores[0]; const secondHightScore=scores[1]; const[gold,
+    silver, bronze]=scores;
+    _________________________________________________________________________________________________________ Array
+    Destructuring const raceResults=['Susie', 'Phil Lelisa' , 'Galen Rupp' ]; const[gold, silver, bronze]=raceResults;
+    gold; //Susie silver; //Phil Lelisa bronze; //Galen Rupp const[fastest, ...everyoneElse]=raceResults; fastest;
+    //"Susie" everyoneElse; //["Phil Lelisa", "Galen Rupp" ]
+    _________________________________________________________________________________________________________ Object
+    Destructuring 从对象中提取值，而不是从数组中提取值 const runner={ first: "Eliud" , last:"Kipchoge", country: "Kenya" ,
+    title: "Elder of the Order of the Golden Heart of Kenya" } 定义一个东西, 想要这些东西from xxx const{ first, last,
+    country}=runner; first; //"Eliud" last; //"Kipchog" country; //"Kenya" const(born: birthYear)=user;
+    //这个语句的意思是用user里的born数据, 在console里显示birthyear: xxx 的意思
+    _________________________________________________________________________________________________________ Param
+    Destructuring 最初的模样 const fullName=({first, last})=>{
+    return `${first} ${last}`
+    }
+    const runner = {
+    first: "Eliud",
+    last: "Kipchoge",
+    country:"Kenta",
+    }
+
+    fullName(runner);//"Eliud Kipchoge"
+
+    function fullName(user){
+    const{firstName, lastName} = user;
+    return `${firstName} ${lastName}` //这样就省事儿了
+    }
+
+    然后下一步 更省事儿
+    function fullName({firstName, lastName}){
+    return `${firstName} ${lastName}` //这样就更更更更省事儿了
+    }
+    _________________________________________________________________________________________________________
