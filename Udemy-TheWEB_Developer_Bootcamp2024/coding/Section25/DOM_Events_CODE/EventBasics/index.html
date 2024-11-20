@@ -9,14 +9,16 @@
 
 <body>
     <h1>Events</h1>
+    <!-- 方法1，就是在行内样式中增加onclick，需要的东西越多 这个就越麻烦 注意的点也很多 -->
     <button onclick="alert('you clicked me!'); alert('stop clicking')">Click Me!</button>
-
+    <!-- 方法2，在js里设置 然后再console里会有显示 不会弹窗-->
     <button id="v2">Click Me (2nd version)</button>
-
+    <!-- 方法3，也是在js里设置，但会在界面中弹出弹窗进行提示 -->
     <button id="v3">Click Me (3rd version)</button>
-
+    <!-- 方法4， 就是switch交换，如果不是clicked就变成clicked，反之不clicked -->
     <button id="tas">Twist & Shout</button>
 
+    <!-- 方法2,3，4需要在js里设置，所以这里要连接一下 -->
     <script src="app.js"></script>
 </body>
 
