@@ -1,5 +1,5 @@
-const button = document.querySelector('button');
-const h1 = document.querySelector('h1');
+const button = document.querySelector('button'); //调用 重新分配
+const h1 = document.querySelector('h1'); //调用 重新分配
 
 button.addEventListener('click', function () {
     const newColor = makeRandColor();
