@@ -248,6 +248,91 @@ listItems.forEach(item => {
 
 
 —————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+ParentElement 、children
+
+const firstBold = document.querySelector('b')
+firstBold //<b>Silkie</b> 显示当前的标签
+firstBold.parentElement //<p>xxxx</p> 显示当前标签的上一级 父元素
+firstBold.parentElement.oarentElement //<body>xxxx</body> 显示当前标签的上一级 父元素 可以再网上查就是route HTML元素
+
+const paragraph = firstBold.parentElement //简单定义一下 为了展示children
+paragraph.children //就会显示出来每个段落的子段落
+
+
+Sibling 这些属性允许我们从一个元素导航到相邻的兄弟元素
+是依据节点走的 像是回车 空格 换行之类的
+
+.previousElementSibling
+.nextElemntSibling
+这两个比较常用
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Adding & delete
+Append % AppendChild
+
+创建元素类型
+document.createElement
+
+p.append("I am new text yaaaaayyy!", "asasdasdasdasd")
+//在段落后面添加这些词
+
+
+practice: creating things
+oh 淦 这真的忘了
+
+// WRITE YOUR CODE IN HERE:
+// Select the container element
+const container = document.getElementById('container');
+
+// Loop 100 times
+for (let i = 1; i <= 100; i++) {
+    // Create a new button element
+    const button = document.createElement('button');
+    
+    // Set the inner text of the button
+    button.innerText = `Hey!`;
+    
+    // Append the button to the container
+    container.append(button);
+}
+
+—————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+removeChild
+
+~~~~~~麻烦版本的removeChild~~~~~~~
+const firstLi = document.querySelector('li') //定义firstLi是li的第一个元素
+firstLi //把第一个li显示出来
+const ul = firstLi.parentElement //定义ul是firstLi的父元素
+ul //显示当前ul 父元素
+ul.removeChild(firstLi) //这回才把第一个li删掉
+
+
+~~~~~简单版的~~~~~~~~
+const b = document.querySelector('b')
+b.parentElement.removeChild(b)
+
+
+~~~~~~~~升级版~~~~~~~~~~~~~
+.remove()
+
+const img = document.querySelector('img')
+img.remove()
+就完啦！！！！！！这个行，时代在进步
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
