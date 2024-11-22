@@ -12,7 +12,6 @@ mouse wheel/ double click/ copying/ pasting/audio start/ screent resize/printing
 
 1. 文件EventBasics里展示
 
-
 addEventListener 事件监听器
 Specify the event type and a callback to run
 
@@ -22,11 +21,11 @@ btn3.addEventListener('click', function () {
     alert("CLICKED!");
 })
 
-
 2. Key word ----> this
-
 3. The Event object
 4. Form Event 当你输入form的时候会自动跳action 就是这里，这个部分就是后端需要做的，你的url会变成action里写的东西 但可以设置成只在console里提示 .preventDefault（）可以避免跳转
     Form event文件里有实例
 
-
+5. Change and Input Events 没听懂？？？ 实时监听 练习里不错 可以看懂
+6. Bubbling 设置button 然后这个div直接消失了hide 然后可以设置时间恢复
+7. Event Delegation 实际上是一个问题或更多问题的解决方案，更像是一种编写代码和处理时间的策略
