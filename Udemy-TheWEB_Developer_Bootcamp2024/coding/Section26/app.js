@@ -1,5 +1,6 @@
 const p1Button = document.querySelector('#p1Button');
 const p2Button = document.querySelector('#p2Button');
+const resetButton = document.querySelector('#reset')
 const p1Display = document.querySelector('#p1Display')
 const p2Display = document.querySelector('#p2Display')
 
@@ -44,6 +45,19 @@ p2Button.addEventListener('click', function () {
         // 这个是当你点击p1Button，p1Display就会相应增加
         p2Display.textContent = p2Score;
     }
+
+
+    //p1+p2弄完了 该弄reset了
+    resetButton.addEventListener('click', function () {
+        isGameOver = false;
+        p1Score = 0;
+        p2Score = 0;
+        //这样就会在屏幕上显示p1p2玩家的分数归零了
+        p1Display.textContent = 0;
+        p2Display.textContent = 0;
+
+
+    })
 
 })
 
