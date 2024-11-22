@@ -83,6 +83,7 @@ function reset() {
 }
 */
 
+// _________________________________________实在不想检查了之后再说 下面是chat修改的__________________________________________________
 
 const p1Button = document.querySelector('#p1Button');
 const p2Button = document.querySelector('#p2Button');
