@@ -1,5 +1,5 @@
 Section 21
-Scope范围
+<!-- Scope范围  -->
 Variable "visibility"
 The location where a variable is defined dictates where we hhave access to that variable.
 
