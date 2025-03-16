@@ -3,10 +3,21 @@
     margin: 0;
 }
 
+
+
 /* 1. 确定版心 */
 .w {
     width: 1200px;
     margin: auto;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+
 }
 
 .header {
@@ -25,6 +36,28 @@
 
 .nav {
     float: left;
+    margin-left: 60px;
+}
+
+.nav ul li {
+    float: left;
+    margin: 0 15px;
+}
+
+/* 因为导航栏里面文字不一样多，所以最好给链接a左右padding 撑开盒子，而不是指定宽度 */
+.nav ul li a {
+    /* 因为a是行内元素 所以要先转化成块元素 才能有固定的大小 */
+    display: block;
+    height: 42px;
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #050505;
+}
+
+.nav ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
 }
 
 .search {
