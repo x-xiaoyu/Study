@@ -14,6 +14,7 @@
 
 body {
     background-color: #f3f5f7;
+    height: 2300px;
 }
 
 li {
@@ -248,3 +249,81 @@ a {
 
 
 /* goods end */
+
+
+/* -------- box精品推荐大模块Start ----------- */
+
+.box {
+    margin-top: 30px;
+}
+
+.box-hd {
+    width: 1215px;
+    height: 45px;
+}
+
+.box-hd h3 {
+    float: left;
+    font-size: 20px;
+    color: #494949;
+}
+
+.box-hd a {
+    float: right;
+    font-size: 12px;
+    color: #a5a5a5;
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+/* 这个是在li有了margin-right之后有溢出 所以修改父级宽度 能装得下li的宽度 才出现的 */
+.box-bd ul {
+    width: 1225px;
+}
+
+.box-bd ul li {
+    float: left;
+    width: 228px;
+    height: 270px;
+    background-color: pink;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+.box-bd ul li img {
+    width: 100%;
+}
+
+.box-bd ul li h4 {
+    margin: 20px 20px 20px 25px;
+    font-size: 14px;
+    color: #050505;
+    font-weight: 400;
+}
+
+.box-bd .info {
+    margin: 0 20px 0 25px;
+    font-size: 12px;
+    color: #999;
+}
+
+.box-bd .info span {
+    color: #ff7c2d;
+}
+
+/* box精品推荐大模块end */
+
+
+
+/* ------- footer模块 Start ------- */
+
+
+
+
+
+
+
+
+/* footer模块 end */
