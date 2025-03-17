@@ -25,6 +25,7 @@ a {
 
 }
 
+/* ----------  header start ---------- */
 .header {
     height: 42px;
     /* background-color: pink; */
@@ -106,6 +107,9 @@ a {
     color: #666;
 }
 
+/* header end */
+
+/* ----------  banner start ----------  */
 .banner {
     height: 421px;
     background-color: blue;
@@ -192,5 +196,55 @@ a {
     color: #00a4ff;
     font-size: 16px;
     font-weight: 700px;
+}
+
+/* banner end */
+
+
+/* ---------- goods start--------- */
+
+.goods {
+    height: 60px;
+    background-color: #fff;
+    margin-top: 10px;
+    box-shadow: 0 2px 3px 3px rgba(0, 0, 0, 0.1);
+    /* 行高会继承给三个孩子 */
+    line-height: 60px;
+}
+
+.goods h3 {
+    float: left;
+    margin-left: 30px;
+    font-size: 16px;
+    color: #00a4ff;
 
 }
+
+
+.goods ul {
+    float: left;
+    margin-left: 30px;
+}
+
+.goods ul li {
+    float: left;
+
+}
+
+.goods ul li a {
+    padding: 0 30px;
+    font-size: 16px;
+    color: #050505;
+    border-left: 1px solid #ccc;
+}
+
+.mod {
+    float: right;
+    margin-right: 30px;
+    font-size: 14px;
+    color: #00a4ff;
+
+}
+
+
+/* goods end */
