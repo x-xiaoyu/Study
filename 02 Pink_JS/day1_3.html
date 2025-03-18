@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>按钮js练习</title>
+  <style>
+    .pink {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="pink">按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+  <button>按钮4</button>
+  <button>按钮5</button>
+
+  <script>
+    // 把所有按钮获取过来
+    let bts = document.querySelectorAll('button')
+    // 利用循环去做这个点击谁 谁就变成粉色的
+    for (let i = 0; i < bts.length; i++) {
+      // 增加一个时间监听，但点击某一个的时候 会有个function
+      bts[i].addEventListener('click', function () {
+        // class为pink的button就会被清空=不会在成粉色的了
+        document.querySelector('.pink').className = ''
+        // 点击的这个button会变成粉色
+        this.className = 'pink'
+      })
+    }
+  </script>
+</body>
+
+</html>
