@@ -292,6 +292,8 @@ a {
 }
 
 .box-bd ul li {
+    /* 子绝父相 为了hot */
+    position: relative;
     float: left;
     width: 228px;
     height: 270px;
@@ -301,9 +303,16 @@ a {
 }
 
 
-
-.box-bd ul li img {
+/* 本来没有> 突然增加是因为要放hot图片 但又都是img 但em里的img是孙子 li里的是亲儿子 所以设置一个优先级 这句话的意思就是设置li里的亲儿子 wid是100% */
+.box-bd ul li>img {
     width: 100%;
+}
+
+.box-bd ul li em {
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* 如果不设置父亲定位 就会按照浏览器的大小定位 */
 }
 
 .box-bd ul li h4 {
