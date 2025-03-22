@@ -1,4 +1,63 @@
+/* 声明字体图标 记得复制过来之后更改路径 */
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?tomleg');
+    src: url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+        url('../fonts/icomoon.woff?tomleg') format('woff'),
+        url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* 1.确认版心 最大的框架 */
 .w {
     width: 1200px;
     margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+li {
+    text-decoration: none;
+}
+
+.style_red {
+    color: #c81623;
+}
+
+/* —————————————————————— shortcut快捷导航模块 —————————————————————————————— */
+
+.shortcut {
+    height: 31px;
+    /* 根据继承性 在这里设置li的垂直居中 */
+    line-height: 31px;
+    background-color: #f1f1f1;
+}
+
+/* shortcut里的所有li都要在同一行上 所以要设置float */
+.shortcut ul li {
+    float: left;
+}
+
+/* 因为发现一个规律 每次到偶数的时候就是| 所以直接设置child就可以了 */
+.shortcut .fr ul li:nth-child(even) {
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin: 9px 15px 0;
+}
+
+.arrow-icon::after {
+    content: '\e91e';
+    font-family: 'icomoon';
+    margin-left: 6px;
+
 }
