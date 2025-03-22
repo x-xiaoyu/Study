@@ -61,3 +61,11 @@ li {
     margin-left: 6px;
 
 }
+
+
+/* —————————————————————— header 头部模块——————————————————————*/
+
+.header {
+    height: 105px;
+    background-color: pink;
+}
