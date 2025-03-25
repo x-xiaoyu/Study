@@ -66,6 +66,38 @@ li {
 /* —————————————————————— header 头部模块——————————————————————*/
 
 .header {
+    position: relative;
     height: 105px;
     background-color: pink;
+}
+
+.logo {
+    position: absolute;
+    top: 25px;
+    width: 171px;
+    height: 61px;
+
+    background-color: skyblue;
+}
+
+.logo a {
+    display: block;
+    width: 171px;
+    height: 61px;
+    background: url(../images/logo.png) no-repeat;
+    /* 把文字隐藏了（字号变成0 就看不见了 且符合seo 搜索引擎可以搜到 */
+    /* font-size: 0; 京东做法 */
+    /* 下面是淘宝的做法 就是把文字往左边移动 然后溢出的部分hidden一下。。 让文字隐藏 */
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.search {
+    position: absolute;
+    top: 25px;
+    left: 346px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
+
 }
