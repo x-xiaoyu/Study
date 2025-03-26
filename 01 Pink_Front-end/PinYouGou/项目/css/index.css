@@ -101,3 +101,59 @@
 .bargain {
     margin-top: 5px;
 }
+
+/* ————————————————————————————————— 推荐模块 ————————————————————————————————— */
+
+
+
+.recommend {
+
+    height: 163px;
+    background-color: #ebebeb;
+    margin-top: 12px;
+}
+
+.recom_hd {
+    float: left;
+    height: 163px;
+    width: 205px;
+    background-color: #5c5251;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.recom_bd {
+    float: left;
+}
+
+.recom_bd ul li {
+    position: relative;
+    float: left;
+}
+
+/* 不过上传多大的图片 都会被硬性搞到这个大小 */
+.recom_bd ul li img {
+    width: 248px;
+    height: 163px;
+}
+
+/* 因为最后一个没有 */
+.recom_bd ul li:nth-child(-n+3):after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 1px;
+    height: 145px;
+    background-color: #ddd;
+}
+
+
+/* ————————————————————————— 缺少 猜你喜欢 模块————————————————————————————————— */
+
+
+
+
+
+
+/* ————————————————————————— 楼层 模块————————————————————————————————— */
