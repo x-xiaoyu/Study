@@ -58,7 +58,37 @@
 
 .liveservice {
     height: 209px;
-    background-color: blue;
+    /* background-color: blue; */
+    border: 1px solid #e4e4e4;
+    border-top: 0;
+    /* 因为ul需要扩大 放li 之后会有溢出 所以要隐藏 */
+    overflow: hidden;
+}
+
+/* 如果不更改ul的大小 下面的li就不够放 不用担心爆掉 因为是css3盒子 */
+.liveservice ul {
+    width: 252px;
+}
+
+.liveservice ul li {
+    float: left;
+    width: 63px;
+    height: 71px;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    text-align: center;
+
+}
+
+/* 因为要放图片 i又是行内元素 转换成块元素 */
+.liveservice ul li i {
+    display: inline-block;
+    width: 24px;
+    height: 28px;
+    background-color: pink;
+    margin-top: 12px;
+    background: url(../images/icons.png )no-repeat -19px -15px;
+
 }
 
 .bargain {
