@@ -50,3 +50,22 @@
     font-family: 'icomoon';
     content: '\e91e';
 }
+
+
+.sk_bd ul li {
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+    width: 290px;
+    height: 460px;
+    /* li本身就有边框 所以直接从透明变成显现 不然会爆出抖动 */
+    border: 1px solid transparent;
+}
+
+.sk_bd ul li:nth-child(4n) {
+    margin-right: 0;
+}
+
+.sk_bd ul li:hover {
+    border: 1px solid #c81523;
+}
