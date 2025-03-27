@@ -1,4 +1,7 @@
 /* 列表页专有的css */
+.nav {
+    overflow: hidden;
+}
 
 .sk {
     position: absolute;
