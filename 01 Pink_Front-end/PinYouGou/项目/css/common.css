@@ -68,7 +68,7 @@ li {
 .header {
     position: relative;
     height: 105px;
-    background-color: pink;
+    /* background-color: pink; */
 }
 
 .logo {
@@ -76,8 +76,8 @@ li {
     top: 25px;
     width: 171px;
     height: 61px;
-
-    background-color: skyblue;
+    /* 
+    background-color: skyblue; */
 }
 
 .logo a {
