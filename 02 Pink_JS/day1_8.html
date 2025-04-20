@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量练习-弹出姓名及交换变量的值</title>
+</head>
+
+<body>
+    <script>
+        /*
+        一、弹出姓名
+        // 浏览器中弹出对话框：请输入姓名，页面中输出：刚才输入的姓名
+        // 1. 用户输入
+        // 2. 内部处理保存数据
+        let urname = prompt('请输入您的姓名')
+        // 3.打印输出
+        document.write(urname)
+        */
+
+        // 交换变量的值
+        // 有2个变量：num1里面放的是10，num2里面放的是20
+        // 最后变为num1 里面放的是20，num2里面放的是10
+        // 目的：练习变量的使用 为了后面冒泡排序做准备
+        let num1 = 10
+        let num2 = 20
+        let temp = 0
+
+        temp = num1
+        num1 = num2
+        num2 = temp
+
+        console.log(num1, num2);
+
+
+
+
+    </script>
+</body>
+
+</html>
