@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例</title>
+</head>
+
+<body>
+    <script>
+        // 简易ATM取款机案例
+        // 用户可以选择存钱，取钱，查看余额金额退出功能
+        // 分析
+        // 1. 循环的时候，需要反复提示输入框，所以提示框写到循环里面
+        // 2. 退出的跳见使用户输入了4，如果是4， 则结束循环，不再弹窗
+        // 3. 提前准备一个金额预先存储一个数额
+        // 4. 取钱则是减法操作，存钱则是加法操作，查看余额则是直接显示余额
+        // 5. 输入不同的值，可以使用switch 来执行不同的操作
+
+        let money = 100
+        while (true) {
+
+            let re = +prompt(`
+                        请选择操作: 
+                            1. 存钱
+                            2. 取钱
+                            3. 查看余额
+                            4. 退出
+                        `)
+
+
+            if (re === 4) {
+                break
+            }
+
+            switch (re) {
+                case 1:
+                    let cun = +prompt('请输入您要存多少钱')
+                    money = money + cun
+                    break;
+                case 2:
+                    let qu = +prompt('请输入您要存多少钱')
+                    money = money - qu
+                    break;
+                case 3:
+                    alert(`您的银行余额是${money}`)
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
