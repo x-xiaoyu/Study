@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分支语句练习</title>
+</head>
+
+<body>
+    <script>
+        // 单分支练习
+        // // 用户输入高考成绩，如果分数大于700，则提示恭喜考入黑马程序员
+        // // 用户输入
+        // let score = +prompt('请输入您的高考成绩：')
+        // // 进行判断输出
+        // if (score >= 700) {
+        //     alert('恭喜考入黑马程序员')
+        // }
+
+        // 双分支练习
+        // 判断用户登录案例
+        // 用户输入，用户名：Pink，密码：123456，则提示登陆成功，否则提示登录失败
+        // 用户输入
+        // let name = prompt('请输入用户名')
+        // let password = prompt('请输入密码')
+        // // 进行判断输出
+        // if (name === 'Pink' && password === '123456') {
+        //     alert('登陆成功')
+        // } else {
+        //     alert('登录失败')
+        // }
+
+        // 多分支练习
+        // 需求：根据输入不同的成绩，反馈不同的评价
+        // 注：
+        // 1. 成绩90+ 优秀
+        // 2. 成绩70-90 良好
+        // 3. 成绩60-70 及格
+        // 4. 成绩60- 不及格
+
+        let score = +prompt('请输入您的成绩')
+        if (score >= 90) {
+            alert('您是优秀')
+        } else if (score >= 70 && score < 90) {
+            alert('您是良好')
+        } else if (score >= 60 && score < 70) {
+            alert('您是及格')
+        } else {
+            alert('您不及格')
+        }
+    </script>
+</body>
+
+</html>
