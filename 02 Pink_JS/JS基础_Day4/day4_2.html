@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数参数</title>
+</head>
+
+<body>
+    <script>
+        // // 需求：封装求和 采取函数封装的形式：输入两个数，计算两者的和，打印到页面中
+        // function addNum(num1, num2) {
+        //     document.write(num1 + num2);
+        // }
+        // addNum(1, 2)
+        // // 没有传参就是undefined
+        // // 两个undefined相加就是NaN
+
+        // // 需求：学生的分数是一个数组，计算每一个学生的总分
+        // // 分析：
+        // // 1.封装一个求和函数
+        // // 2. 传递过去的参数是一个数组
+        // // 3.函数内部遍历数组求和
+        // function getArrSum(arr) {
+        //     let sum = 0
+        //     for (let i = 0; i < arr.length; i++) {
+        //         sum += arr[i]
+        //     }
+        //     console.log(sum);
+
+        // }
+        // getArrSum([1, 2, 3, 4, 5])
+
+
+        // 实参可以是变量
+        function getSum(n = 0, m = 0) {
+            let sum = 0
+            for (let i = 0; i <= m; i++) {
+                sum += i
+            }
+            console.log(sum);
+
+        }
+        // getSum()
+        // getSum(1, 2)
+        let num1 = +prompt('请输入起始值')
+        let num2 = +prompt('请输入结束值')
+        getSum(num1, num2)
+
+    </script>
+</body>
+
+</html>
