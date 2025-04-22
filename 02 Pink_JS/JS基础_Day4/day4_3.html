@@ -10,6 +10,54 @@
 <body>
     <script>
 
+        // function fn() {
+        //     return 20
+        // }
+        // console.log(fn());
+
+
+
+        // // 1. 求任意两个数中的最大值，并返回
+        // function getLarger(x = 0, y = 0) {
+        //     if (x > y) {
+        //         return x
+        //     } else {
+        //         return y
+        //     }
+
+        // return x > y ? x : y //可以直接这么写。。。。
+        // }
+        // console.log(getLarger(4, 3));
+
+
+        // 2. 求任意数组中的最大值并返回这个最大值
+        function maxNum(arr = []) {
+            let max = arr[0]
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i]
+                }
+            }
+            return max
+        }
+        console.log(maxNum([1, 2, 3, 4, 5]));
+
+        // 3. 求任意数组中的最小值并返回这个最小值
+        function minNum(arr = []) {
+            let min = arr[0]
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i]
+                }
+            }
+            return min
+        }
+        console.log(minNum([1, 2, 3, 4, 5]));
+
+
+        // 可以把求最小值和最大值放一起写
+        // 两个初始化，两个if ，return [max, min]
+
 
     </script>
 </body>
