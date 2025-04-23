@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象-数学内置对象-随机颜色random案例</title>
+</head>
+
+<body>
+    <script>
+
+        // 该函数接受一个布尔类型参数，表示颜色的格式是十六进制还是rgb格式
+        // 1. 如果参数传递的是true或者无参数，则输出 一个随机十六进制的颜色
+        // 2. 如果参数传递的是false，则输出 一个随机rgb的颜色
+        // 3. 格式：
+        //     function getRandomColor(flag){
+        //     })
+        //     console.log(getRandomColor(true)); //#ffffff
+        //     console.log(getRandomColor(false)); //#rgb(255,255,255)
+        // 分析：
+        //     提示： 16禁止颜色格式为’#ffffff‘ 其中f可以是任意0-f之间的字符
+        //              let arr = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f',]
+        //     提示：rgb颜色格式为：’rgb（255,255,255） 其中255可以是任意0-255之间的数字
+
+        // 1.自定义一个随机染色函数
+        function getRandomColor(flag) {
+            // 3. 如果是true，则返回#ffffff
+            let color = prompt('请输入颜色')
+            if (flag) {
+                let str = '#'
+                let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f',]
+                // 利用for循环 随机抽6次 累加到str里面
+                for (let i = 1; i <= 6; i++) {
+                    //每次要随机从数组里抽取一个
+                    // random是数组的索引号 是随机的
+                    let random = Math.floor(Math.random() * arr.length)
+                    str = str + arr[random]
+
+                }
+                return str
+
+            } else {
+                // 4.否则是rgb（255,255,255,255）
+                let r = Math.floor(Math.random() * 256) //因为要取到255 所以要+1
+                let g = Math.floor(Math.random() * 256) //因为要取到255 所以要+1
+                let b = Math.floor(Math.random() * 256) //因为要取到255 所以要+1
+                return `rgb(${r},${g},${b})` //这个是要返回出来 不然不知道干嘛 刚开始是写死的，后面用${}引用
+            }
+        }
+
+        // 2.调用函数getRandomColor（布尔值）
+        console.log(getRandomColor(false)) //传参 false 执行else
+        console.log(getRandomColor(true)) //传参 true 执行if
+        console.log(getRandomColor()) //传参 空 执行else
+
+
+    </script>
+</body>
+
+</html>
