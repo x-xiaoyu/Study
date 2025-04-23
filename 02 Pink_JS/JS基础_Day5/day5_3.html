@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象-遍历数组</title>
+</head>
+
+<body>
+    <script>
+        // for in
+        let arr = ['pink', 'red', 'blue']
+        for (let k in arr) {
+            console.log(k); //数组的下标 索引号 但是是字符串'0'
+            console.log(arr[k]); //数组里本身的值 arr[k]
+            // 实际中 一般不用for in遍历数组（因为字符串不是数字类型）不推荐
+        }
+
+
+        // 推荐 for in遍历对象 比如在对象里所有关于name的属性取出来
+        let obj = {
+            uname: 'pink老师',
+            age: 18,
+            gender: '男'
+        }
+
+        // 遍历对象
+        for (let key in obj) {
+            // console.log(k); //uname age gender 属性名 'uname'加引号的字符串（值）
+            // console.log(obj.uname);//传统打印方法 直接调用 对象.属性
+            // console.log(obj.k); //这里面用k遍历 尝试引k 但会出错
+            // console.log(obj.'uname');//上面的相当于是这样引用的，但也是undefined 
+            // console.log(obk['uname']); //第二种查找方式
+            console.log(obk[k]); //第二种查找方式 换会k遍历
+        }
+
+
+    </script>
+</body>
+
+</html>
