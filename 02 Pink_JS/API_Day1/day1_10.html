@@ -92,6 +92,12 @@
 </head>
 
 <body>
+    <!-- 需求：当我们刷新页面，页面中的录播图会显示不同图片以及样式
+     模块：
+     1. 图片会随机变化
+     2.底部盒子背景颜色和文字内容会变换
+     3. 小圆点随机一个高亮显示
+      -->
     <div class="slider">
         <div class="slider-wrapper">
             <img src="./images/slider01.jpg" alt="" />
@@ -126,6 +132,17 @@
             { url: './images/slider07.jpg', title: '一站式解决你的电脑配置问题！！！', color: 'rgb(53, 29, 25)' },
             { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
         ]
+
+        // 2. 随机选择个数字，选出数组对应的对象，更换图片，底部盒子背景颜色，以及文字内容
+        const random = parseInt(Math.random() * sliderData.length) //向下取整 Math.floor也行
+        // console.log(sliderData[random]);//检查一下 有没有随机获取一个对象
+        // 3. 把对应的数据渲染到标签里面
+        // 获取
+        const img = document.querySelector('.slider-wrapper img')
+        // 修改图片路径 = 对象url
+        img.src = sliderData[random].url
+
+
 
 
     </script>
