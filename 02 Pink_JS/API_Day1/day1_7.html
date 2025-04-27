@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习DOM-通过style更改样式</title>
+    <style>
+        body {
+            background: url(./images/desktop_1.jpg) no-repeat top center/cover;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 分析：
+            1. 随机函数
+            2. css页面背景图片 background-image
+            3. 标签选择body，因为body是唯一的标签，可以直接写document.body.style
+             -->
+
+
+
+    <script>
+        // 1.不需要获取元素 因为可以直接拿过来用
+        // console.log(document.body); //可以直接拿标签（body是唯一的）
+        // 取到 N~M 的随机整数
+        function getRandom(N, M) {
+            return Math.floor(Math.random() * (M - N + 1)) + N
+        }
+        const random = getRandom(1, 10)
+
+        document.body.style.backgroundImage = `url(./images/desktop_${random}.jpg)`
+
+    </script>
+</body>
+
+</html>
