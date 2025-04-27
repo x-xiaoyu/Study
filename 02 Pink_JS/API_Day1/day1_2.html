@@ -8,13 +8,27 @@
 </head>
 
 <body>
-    <p id="nav">导航栏</p>
-    <ul class="nav">
-        <li>我的首页</li>
-        <li>产品介绍</li>
-        <li>联系方式</li>
-    </ul>
+    <div class="box">
+        我是文字内容
+    </div>
     <script>
+        const obj = {
+            name: 'pink老师'
+        }
+        console.log(obj.name); //获取文字
+        obj.name.log = 'red老师' //更改文字
+
+        // 1.获取元素
+        const box = document.querySelector('.box') //box是个元素对象
+        // // 2. 修改文字内容 对象.innerText 属性
+        // console.log(box.innerText); //获取文字内容
+        // //3. box.innerText = '我是一个盒子' //修改文字内容
+        // box.innerText = '<strong>我是一个盒子</strong>' //不解析标签
+
+        // // 2. 修改文字内容 对象.innerHTML 属性 解析标签
+        console.log(box.innerHTML);
+        box.innerHTML = '我要更换'
+        box.innerHTML = '<strong>识别标记</strong>'
 
 
     </script>
