@@ -5,11 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>练习DOM-classList修改样式</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            color: #333;
+        }
+
+        .active {
+            color: red;
+            background-color: pink;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="box">文字</div>
 
     <script>
+        // 1.通过classList添加样式 获取元素
+        const box = document.querySelector('.box')
+        // // 2.添加样式 add()
+        // box.classList.add('active')
+        // // 3. 删除样式remove()
+        // box.classList.remove('box')
+        // 切换类 toggle() 有还是没有 有就删掉 没有就加上 来回切
+        box.classList.toggle('active')
 
     </script>
 </body>
