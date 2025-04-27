@@ -4,11 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>练习DOM</title>
 </head>
 
 <body>
+    <p id="nav">导航栏</p>
+    <ul class="nav">
+        <li>我的首页</li>
+        <li>产品介绍</li>
+        <li>联系方式</li>
+    </ul>
+    <script>
+        // 获取元素
+        const lis = document.querySelectorAll('.nav li')
+        // console.log(lis); #output nodelist（3）
+        // 遍历数组
+        for (let i = 0; i <= lis.length; i++) {
+            // 打印每个li对象
+            console.log(lis[i]);
+        }
 
+        // 一个元素也是伪数组
+        const p = document.querySelectorAll('#nav')
+        console.log(p);
+
+        // 没有办法直接改样式 可以for循环 或者p[0]
+        p[0].style.color = 'red'
+
+
+    </script>
 </body>
 
 </html>
