@@ -139,8 +139,26 @@
         // 3. 把对应的数据渲染到标签里面
         // 获取
         const img = document.querySelector('.slider-wrapper img')
-        // 修改图片路径 = 对象url
+        // 修改图片路径 = 对象url sliderData[random]是数组 数组没有URL 但对象.url有url 对象里面的数组元素
         img.src = sliderData[random].url
+        // 4.把p里面的文字更换
+        // 4.1.获取p
+        const p = document.querySelector('.slider-footer p')
+        // 4.2.更改p
+        p.innerHTML = sliderData[random].title
+
+        // 5.更改颜色
+        // 5.1 获取color
+        const footer = document.querySelector('.slider-footer')
+        // 5.2 更改颜色
+        footer.style.backgroundColor = sliderData[random].color
+
+        // 6.轮播图小点变换 length + 1 
+        // 获取小圆点 选择第三个小圆点 不用all因为 只要把一个li选出来 然后再更改就行
+        const li = document.querySelector(`.slider-indicator li:nth-child(${random + 1})`)
+        // 变换小圆点
+        console.log(li);
+
 
 
 
