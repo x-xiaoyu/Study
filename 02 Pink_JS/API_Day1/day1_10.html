@@ -105,7 +105,7 @@
         <div class="slider-footer">
             <p>对人类来说会不会太超前了？</p>
             <ul class="slider-indicator">
-                <li class="active"></li>
+                <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -156,8 +156,10 @@
         // 6.轮播图小点变换 length + 1 
         // 获取小圆点 选择第三个小圆点 不用all因为 只要把一个li选出来 然后再更改就行
         const li = document.querySelector(`.slider-indicator li:nth-child(${random + 1})`)
-        // 变换小圆点
-        console.log(li);
+        // console.log(li); //确认一下是随机选的li
+        // 让当前这个小li 添加active类 classList一个一个添加
+        li.classList.add('active')
+
 
 
 
