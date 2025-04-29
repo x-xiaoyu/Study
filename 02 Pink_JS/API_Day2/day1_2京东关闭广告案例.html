@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东关闭广告练习</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 200px;
+            background-color: pink;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .box1 {
+            width: 65px;
+            height: 25px;
+            background-color: skyblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        我是广告
+        <div class="box1">点我关闭</div>
+    </div>
+    <script>
+        // 点击按钮 关闭广告
+        // 1. 事件源：按钮
+        const box1 = document.querySelector('.box1')
+        // 关闭的是大盒子
+        const box = document.querySelector('.box')
+        // 2. 事件类型：点击鼠标
+        // 3.事件处理程序：弹出对话框
+        box1.addEventListener('click', function () {
+            // 隐藏
+            box.style.display = 'none'
+        })
+    </script>
+</body>
+
+</html>
