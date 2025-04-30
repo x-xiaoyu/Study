@@ -57,6 +57,50 @@
     <script>
         // 数据数组
         const arr = ['马超', '黄忠', '赵云', '关羽', '张飞']
+        // 业务1：开始按钮模块
+        // 2. 获取数组
+        // 2.1获取开始按钮对象
+        const start = document.querySelector('.start')
+        // 4.3因为要暂停 可是没有名字引+setinterval是内部作用域引不出来 所以要在外面定义这个
+        let timerID = 0
+
+        // 4.3因为要删除已经抽掉的 从random开始删 但是random又是局部变量 所以拿出来声明全局变量
+        let random = 0
+
+        // 2.2获取qs 并且之后置换
+        const qs = document.querySelector('.qs')
+        // 2.3 添加点击事件
+        start.addEventListener('click', function () {
+            // 3. 定时器 把抽取随机数+置换放到定时器里
+            let i = 0
+            timerID = setInterval(function () {
+                // 2.4随机抽取数
+                // const random = parseInt(Math.random() * arr.length) 从4.3变成全局变量 就不用再次声明const了
+                random = parseInt(Math.random() * arr.length)
+                // 2.5置换内容
+                qs.innerHTML = arr[random]
+            }, 35)
+
+
+            // 如果数组里面只有一个值了， 就不需要抽取了 让两个按钮禁用就可以了
+            if (arr.length === 1) {
+                start.disabled = end.disabled = true
+            }
+        })
+
+        // 业务2：结束按钮模块
+        // 4.1 获取end
+        const end = document.querySelector('.end')
+        // 4.2 添加事件监听
+        end.addEventListener('click', function () {
+            clearInterval(timerID)
+            // 结束了，可以删除掉当前抽取的那个元素
+            arr.splice(random, 1)
+            // console.log(arr);检查一下
+
+        })
+
+
 
 
     </script>
