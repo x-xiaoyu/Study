@@ -116,7 +116,7 @@
   </div>
   <script>
     // 1. 初始数据
-    const sliderData = [
+    const data = [
       { url: './images/slider01.jpg', title: '对人类来说会不会太超前了？', color: 'rgb(100, 67, 68)' },
       { url: './images/slider02.jpg', title: '开启剑与雪的黑暗传说！', color: 'rgb(43, 35, 26)' },
       { url: './images/slider03.jpg', title: '真正的jo厨出现了！', color: 'rgb(36, 31, 33)' },
@@ -127,6 +127,94 @@
       { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
     ]
 
+
+    // 2.2.4获取图片 和文字 bg
+    const img = document.querySelector('.slider-wrapper img')
+    const p = document.querySelector('.slider-footer p')
+    const footer = document.querySelector('.slider-footer')
+    // 左右按钮业务
+    // 右边
+    // 2.1获取右侧按钮
+    const next = document.querySelector('.next')
+
+    // 2.3 声明全局变量 播放下一张图片
+    let i = 0
+
+    // 2.2 注册点击事件
+    next.addEventListener('click', function () {
+      // 2.2.1 测试一下是否获取到
+      // console.log(11); 
+
+      // 2.2.2播放下一张图片 
+      i++
+
+      // 2.3 判断条件 如果大于8 复原为0
+      if (i >= data.length) {
+        i = 0
+      }
+      // i = i >= data.length ? 0 : i 三元写法
+
+      // 2.2.3检查是否可以得到对象
+      //console.log(data[i]); 
+      toggle()
+
+    })
+
+    // 3.左边
+    // 3.1 获取左侧按钮
+    const prev = document.querySelector('.prev')
+
+    prev.addEventListener('click', function () {
+      i--
+      if (i < 0) {
+        i = data.length - 1
+      }
+      // 调用函数
+      toggle()
+    })
+
+    // 最后声明 复用 把之前的放到这里
+    function toggle() {
+      // 2.2.5渲染对应的数据
+      img.src = data[i].url
+      p.innerHTML = data[i].title
+      footer.style.backgroundColor = data[i].color
+
+      // 2.2.5 更换小圆点 先移除原来的类名， 当前li再添加这个类名
+      // 获取已有的acitve
+      document.querySelector('.slider-indicator .active').classList.remove('active')
+      // 对应的添加
+      document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
+    }
+
+    // 4.自动播放业务
+    let timerID = setInterval(function () {
+      // 利用js自动调用点击事件
+      next.click()
+    }, 1000)
+
+
+
+
+    // 5. 鼠标经过和离开业务
+    const slider = document.querySelector('.slider')
+    // 注册时间
+    slider.addEventListener('mouseenter', function () {
+      // 停止定时器
+      clearTimeout(timerID)
+    })
+
+    // 6. 鼠标离开和打开业务
+    // 注册时间
+    slider.addEventListener('mouseleave', function () {
+      // 停止定时器 先关再开
+      clearTimeout(timerID)
+      // 开启
+      timerID = setInterval(function () {
+        // 利用js自动调用点击事件
+        next.click()
+      }, 1000)
+    })
 
   </script>
 </body>
