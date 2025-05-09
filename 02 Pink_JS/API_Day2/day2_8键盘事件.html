@@ -8,8 +8,28 @@
 </head>
 
 <body>
-
+    <input type="text">
     <script>
+
+        const input = document.querySelector('input')
+        // 1.键盘事件
+        // input.addEventListener('keydown', function () {
+        //     console.log('键盘按下了');
+
+        // })
+        // input.addEventListener('keyup', function () {
+        //     console.log('键盘弹起了');
+
+        // })
+
+
+
+        // 2.用户输入文本事件 input
+        // 当用户开始输入的时候 就会触发
+        input.addEventListener('input', function () {
+            console.log('123');
+
+        })
 
     </script>
 </body>

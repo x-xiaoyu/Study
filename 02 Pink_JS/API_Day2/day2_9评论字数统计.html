@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API-事件监听练习-键盘事件-评论字数统计</title>
+</head>
+
+<body>
+    <!-- 需求：用户输入文字, 可以计算用户输入的字数 -->
+    <input type="text">
+    <script>
+        const input = document.querySelector('input')
+        count = 0
+        input.addEventListener('input', function () {
+            count += 1
+            console.log(count)
+        })
+
+
+    </script>
+</body>
+
+</html>
