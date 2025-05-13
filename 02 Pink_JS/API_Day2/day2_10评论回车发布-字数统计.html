@@ -132,6 +132,9 @@
   <script>
     const tx = document.querySelector('#tx')
     const total = document.querySelector('.total')
+    const item = document.querySelector('.item')
+    const text = document.querySelector('.text')
+
     // 1. 当我们文本域获得了焦点，就让total显示出来
     tx.addEventListener('focus', function () {
       total.style.opacity = 1
@@ -151,6 +154,20 @@
     // 包装类
     // const str = 'andy'
     // console.log(str.length);
+
+    // 4.按下回车键发布评论
+    tx.addEventListener('keyup', function (e) {
+      // 只有按下回车键，才会触发
+      if (e.key === 'Enter') {
+        if (tx.value.trim() !== '') {
+          item.style.display = 'block'
+          // console.log(tx.value); //用户输入的内容
+          text.innerHTML = tx.value
+        }
+        // 等按下回车键，结束，清空文本域
+        tx.value = ''
+      }
+    })
 
 
   </script>
