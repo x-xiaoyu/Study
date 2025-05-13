@@ -89,7 +89,30 @@
       <div class="item"><img src="./images/tab04.png" alt="" /></div>
     </div>
   </div>
+  <script>
+    // 1. a 模块制作 要给5个链接绑定鼠标经过事件
+    //   1.1 获取a元素
+    const as = document.querySelectorAll('.tab-nav a')
+    // console.log(as); //确保获取到每一个a元素
+    for (let i = 0; i < as.length; i++) {
+      as[i].addEventListener('mouseenter', function () {
+        // console.log('鼠标经过');
+        // 排他思想
+        // 干掉别人 移除类 active
+        document.querySelector('.tab-nav .active').classList.remove('active')
+        // 我登基 我添加 active this当前的那个a链接
+        this.classList.add('active')
 
+
+        // 下面5个大盒子 一一对应 .item
+        // 干掉别人
+        document.querySelector('.tab-content .active').classList.remove('active')
+        // 对应序号的那个Item 显示 添加active 类
+        document.querySelector(`.tab-content .item:nth-child(${i + 1})`).classList.add('active')
+      })
+    }
+
+  </script>
 </body>
 
 </html>
