@@ -75,6 +75,37 @@
     </tr>
   </table>
   <script>
+    // 1. 获取元素 大复选框
+    const checkall = document.querySelector('#checkAll')
+    // 2. 获取所有 小复选框
+    const cks = document.querySelectorAll('.ck')
+    // 3. 点击大复选框 注册事件
+    checkAll.addEventListener('click', function () {
+      // 得到当前大复选框的选中状态
+      console.log(checkAll.checked); //得到是布尔值 true 或者 false
+      // 4. 遍历所有的小复选框 让小复选框的checked = 大复选框的checked
+      for (let i = 0; i < cks.length; i++) {
+        cks[i].checked = checkAll.checked
+      }
+    })
+
+    // 5. 小复选框控制大复选框
+    // 5.1 给所有的小复选框添加点击事件
+    for (let i = 0; i < cks.length; i++) {
+      cks[i].addEventListener('click', function () {
+        // 判断选中的小复选框格式 是不是等于 总的小复选框个数
+        // 一定要写到点击里面，因为每次要获得个数
+        //console.log(document.querySelectorAll('.ck:checked').length); //得到小复选框的个数=length
+        //console.log(document.querySelectorAll('.ck:checked').length === cks.length);  //得到布尔值 true or false
+        checkAll.checked = document.querySelectorAll('.ck:checked').length === cks.length;  //true or false赋值给checkAll的checked值
+
+
+      })
+    }
+
+
+
+
 
   </script>
 </body>
