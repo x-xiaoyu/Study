@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+
+</head>
+
+<body>
+    <!-- ul>li{第$个孩子}*5 -->
+    <ul>
+        <li>第1个孩子</li>
+        <li>第2个孩子</li>
+        <li>第3个孩子</li>
+        <li>第4个孩子</li>
+        <li>第5个孩子</li>
+        <p>我不需要变色</p>
+    </ul>
+
+    <script>
+        // 点击每个小li 当前li 文字变为红色
+        // 按照事件委托的方式 委托给父级 事件写到父级身上
+        // 1. 获得父元素
+        const ul = document.querySelector('ul')
+        ul.addEventListener('click', function (e) {
+            // alert(11) //确保点击li就有alert
+            // this.style.color = 'red' //这个点击之后所有ul里的东西都会变成红色
+            // console.log(e.target) // 就是我们点击的那个对象 点了谁就是谁 target是事件里的属性
+            // e.target.style.color = 'red' // ul里的都变了 不光是li 
+            if (e.target.tagName === 'LI') { //这个tagName是在console里的属性值 LI也是他的名字
+                e.target.style.color = 'red'
+            }
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>
