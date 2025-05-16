@@ -8,7 +8,22 @@
 </head>
 
 <body>
-
+    <form action="http://www.itcast.cn">
+        <input type="submit" value="免费注册">
+    </form>
+    <a href="http://www.baidu.com">baidu一下</a>
 </body>
+<script>
+    const form = document.querySelector('form')
+    form.addEventListener('submit', function (e) {
+        // 阻止默认行为 提交
+        e.preventDefault()
+    })
+
+    const a = document.querySelector('a')
+    a.addEventListener('click', function (e) {
+        e.preventDefault()
+    })
+</script>
 
 </html>
