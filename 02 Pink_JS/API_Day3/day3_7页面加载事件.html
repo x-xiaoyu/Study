@@ -6,8 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>页面加载事件</title>
     <script>
-        // 一般是从向下执行代码的 所以当执行button的时候 上面没有 所以就会出错 此时需要加window加载事件
-        window.addEventListener('load', function () {
+        // // 一般是从向下执行代码的 所以当执行button的时候 上面没有 所以就会出错 此时需要加window加载事件
+        // // 等待load页面所有资源加载完毕，就会去执行回调函数
+        // window.addEventListener('load', function () {
+        //     const btn = document.querySelector('button')
+        //     btn.addEventListener('click', function () {
+        //         alert(11)
+        //     })
+        // })
+
+        // img.addEventListener('load', function () {
+        //     //等待所有加载完了再加加载这个图片
+        // })
+
+        document.addEventListener('DOMContentLoaded', function () {
             const btn = document.querySelector('button')
             btn.addEventListener('click', function () {
                 alert(11)
