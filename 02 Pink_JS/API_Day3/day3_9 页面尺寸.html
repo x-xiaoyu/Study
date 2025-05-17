@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面尺寸事件</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 也会加到clientWidth里 共计220px 通过js来计算宽度 */
+            padding: 10px;
+            /* border不会算作clientWidth里面 */
+            border: 20px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        const div = document.querySelector('div')
+        console.log(div.clientWidth)
+        // console.log(div.clientWidth)
+
+        // 浏览器窗口大小发生变化的时候触发的事件resize 
+        window.addEventListener('resize', function () {
+            console.log(1);//拉动窗口大小就会1
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1214,7 +1214,28 @@
       <li><a href="javascript:;" id="backTop"><i class="sprites"></i>顶部</a></li>
     </ul>
   </div>
+  <script>
+    // 获取元素
+    const elevator = document.querySelector('.xtx-elevator')
+    // 1. 当页面滚动大于300px，就显示电梯导航
+    // 2. 给页面添加滚动事件
+    window.addEventListener('scroll', function () {
+      // 被卷去的头部大于300
+      const n = document.documentElement.scrollTop
+      // if (n >= 300) {
+      //   elevator.style.opacity = 1
+      // } else {
+      //   elevator.style.opacity = 0
+      // }
+      elevator.style.opacity = n >= 300 ? 1 : 0
+    })
 
+    // 点击返回到顶部
+    const backTop = document.querySelector('#backTop')
+    backTop.addEventListener('click', function () {
+      document.documentElement.scrollTop = 0
+    })
+  </script>
 </body>
 
 </html>
