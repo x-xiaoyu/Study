@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面尺寸事件-offset</title>
+    <style>
+        div {
+            /* 如果div有定位 p到外边距就是50 div隐藏了 */
+            /* position: relative; */
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px;
+
+        }
+
+        p {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+    <script>
+        const div = document.querySelector('div')
+        const p = document.querySelector('p')
+        console.log(div.offsetLeft); //108 body有8像素的外边距
+        console.log(p.offsetLeft); //158 到父亲元素50px + 父元素到body100px+ 8外边距（条件是父亲没有定位）
+
+
+
+    </script>
+</body>
+
+</html>

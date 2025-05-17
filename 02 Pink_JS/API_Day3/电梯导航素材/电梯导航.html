@@ -1216,6 +1216,7 @@
   </div>
   <script>
     // 获取元素
+    const entry = document.querySelector('.xtx_entry') //185
     const elevator = document.querySelector('.xtx-elevator')
     // 1. 当页面滚动大于300px，就显示电梯导航
     // 2. 给页面添加滚动事件
@@ -1227,7 +1228,8 @@
       // } else {
       //   elevator.style.opacity = 0
       // }
-      elevator.style.opacity = n >= 300 ? 1 : 0
+      // entry.offsetTop 检测位置
+      elevator.style.opacity = n >= entry.offsetTop ? 1 : 0
     })
 
     // 点击返回到顶部
