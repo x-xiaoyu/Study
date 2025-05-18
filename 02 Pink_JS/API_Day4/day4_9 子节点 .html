@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父节点</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <p>我是第一个段落</p>
+        </li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        const ul = document.querySelector('ul') //ul
+        console.log(ul.children); //li 获得孩子里面所有元素 p也会被标识出来 得到伪数组 选择的是亲儿子
+        const li2 = document.querySelector('ul li:nth-child(2)')
+        console.log(li2.previousElementSibling); //上一个兄弟
+        console.log(li2.nextElementSibling); //下一个兄弟
+
+    </script>
+</body>
+
+
+
+</html>
