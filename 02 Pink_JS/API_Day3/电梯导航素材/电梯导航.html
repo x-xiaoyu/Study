@@ -1215,28 +1215,109 @@
     </ul>
   </div>
   <script>
-    // 获取元素
-    const entry = document.querySelector('.xtx_entry') //185
-    const elevator = document.querySelector('.xtx-elevator')
-    // 1. 当页面滚动大于300px，就显示电梯导航
-    // 2. 给页面添加滚动事件
-    window.addEventListener('scroll', function () {
-      // 被卷去的头部大于300
-      const n = document.documentElement.scrollTop
-      // if (n >= 300) {
-      //   elevator.style.opacity = 1
-      // } else {
-      //   elevator.style.opacity = 0
-      // }
-      // entry.offsetTop 检测位置
-      elevator.style.opacity = n >= entry.offsetTop ? 1 : 0
-    })
+    // 第一大模块 页面滑动（顶部导航栏 到规定地方 会显示+隐藏） 防污染 用(function(){})();
+    (function () {
+      // 获取元素
+      const entry = document.querySelector('.xtx_entry') //185
+      const elevator = document.querySelector('.xtx-elevator')
+      // 1. 当页面滚动大于300px，就显示电梯导航
+      // 2. 给页面添加滚动事件
+      window.addEventListener('scroll', function () {
+        // 被卷去的头部大于300
+        const n = document.documentElement.scrollTop
+        // if (n >= 300) {
+        //   elevator.style.opacity = 1
+        // } else {
+        //   elevator.style.opacity = 0
+        // }
+        // entry.offsetTop 检测位置
+        elevator.style.opacity = n >= entry.offsetTop ? 1 : 0
+      })
 
-    // 点击返回到顶部
-    const backTop = document.querySelector('#backTop')
-    backTop.addEventListener('click', function () {
-      document.documentElement.scrollTop = 0
-    })
+      // 点击返回到顶部
+      const backTop = document.querySelector('#backTop')
+      backTop.addEventListener('click', function () {
+        document.documentElement.scrollTop = 0
+      })
+    })();
+
+
+    // 第二三个大模块 点击不同的模块，页面可以自动跳转不动的位置
+    (function () {
+      // 2. 点击页面可以滑动 用事件委托
+      const list = document.querySelector('.xtx-elevator')
+      list.addEventListener('click', function (e) {
+        // console.log(11);
+        // e.target.dataset.name 是排除最后一个backtop 这是null
+        if (e.target.tagName === 'A' && e.target.dataset.name) {
+          // 排他思想
+          // 先移除active
+          // document.querySelector('.xtx-elevator-list .active').classList.remove('active') //不成立 会null
+          // 先获取类名
+          const old = document.querySelector('.xtx-elevator-list .active')
+          // console.log(old); //null
+          // 判断 如果能获取 就remove 如果不能就返回null
+          if (old) old.classList.remove('active') //一句话不用写大括号
+          //  添加active
+          e.target.classList.add('active')
+
+          // 获得自定义属性
+          // console.log(e.target.dataset.name);
+          // 根据小盒子的自定义属性值 去选择 对应的大盒子
+          // console.log(document.querySelector(`.xtx_goods_new`));
+          // console.log(document.querySelector(`.xtx_goods_${e.target.dataset.name}`).offsetTop);
+          // 获得对应大盒子的offsettop
+          const top = document.querySelector(`.xtx_goods_${e.target.dataset.name}`).offsetTop
+          // 让页面滚动到对应的位置
+          document.documentElement.scrollTop = top
+
+
+
+
+        }
+
+      })
+
+
+      // 3. 页面滚动，可以根据大盒子选 小盒子 添加active 类
+      window.addEventListener('scroll', function () {
+        // 3.1 先移除类
+        // 先移除active
+        // 先获取类名
+        const old = document.querySelector('.xtx-elevator-list .active')
+        // console.log(old); //null
+        // 判断 如果能获取 就remove 如果不能就返回null
+        if (old) old.classList.remove('active') //一句话不用写大括号
+        // 3.2 判断页面当前滑动的位置，选择小盒子
+        // 获取元素 4个大盒子
+        const news = document.querySelector('.xtx_goods_new')
+        const popular = document.querySelector('.xtx_goods_popular')
+        const brand = document.querySelector('.xtx_goods_brand')
+        const topic = document.querySelector('.xtx_goods_topic')
+
+        const n = document.documentElement.scrollTop
+        if (n >= news.offsetTop && n < popular.offsetTop) {
+          // 选择第一个小盒子
+          document.querySelector('[data-name = new]').classList.add('active') //属性选择器要用[]选中
+        } else if (n >= popular.offsetTop && n < brand.offsetTop) {
+          document.querySelector('[data-name = popular]').classList.add('active') //属性选择器要用[]选中
+        } else if (n >= brand.offsetTop && n < topic.offsetTop) {
+          document.querySelector('[data-name = brand]').classList.add('active') //属性选择器要用[]选中
+        } else if (n >= topic.offsetTop) {
+          document.querySelector('[data-name = topic]').classList.add('active') //属性选择器要用[]选中
+        }
+
+      })
+
+
+
+    })();
+
+
+
+
+
+
   </script>
 </body>
 
