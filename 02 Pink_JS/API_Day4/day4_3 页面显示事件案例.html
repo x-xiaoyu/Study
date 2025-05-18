@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面显示时间案例</title>
+    <style>
+        div {
+            width: 300px;
+            height: 40px;
+            border: 1px solid pink;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+<script>
+    const div = document.querySelector('div')
+    function getMyDate() {
+        const date = new Date()
+        // let year = date.getFullYear()
+        // let month = date.getMonth()
+        // let day = date.getDate()
+        // let hour = date.getHours()
+        // let min = date.getMinutes()
+        // let sec = date.getSeconds()
+        // 补0
+        let h = date.getHours()
+        h = h < 10 ? '0' + h : h
+
+        return `今天是：${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}号 ${h}:${date.getMinutes()}:${date.getSeconds()}`
+        // return `今天是：${year}年${month + 1}月${day + 1}号 ${hour}:${min}:${sec}`
+    }
+    div.innerHTML = getMyDate()
+
+    // 定时器
+    setInterval(function () {
+        div.innerHTML = getMyDate()
+
+    }, 1000)
+
+</script>
+
+</html>

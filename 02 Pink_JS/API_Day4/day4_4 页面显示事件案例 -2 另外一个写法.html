@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面显示时间案例</title>
+    <style>
+        div {
+            width: 300px;
+            height: 40px;
+            border: 1px solid pink;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+<script>
+    const div = document.querySelector('div')
+    const date = new Date()
+    div.innerHTML = date.toLocaleString() //2025/5/18 14:43:19
+    // div.innerHTML = date.toLocaleTimeString() //14:44:54
+    // div.innerHTML = date.toLocaleDateString() //2025/5/18
+
+    setInterval(function () {
+        const date = new Date()
+        div.innerHTML = date.toLocaleString() //2025/5/18 14:43:19
+        // div.innerHTML = date.toLocaleTimeString() //14:44:54
+        // div.innerHTML = date.toLocaleDateString() //2025/5/18
+
+    }, 1000)
+
+
+
+</script>
+
+</html>
