@@ -12,6 +12,23 @@
 </body>
 <script>
 
+    // 1. getTime() 必须先实例化
+    const date = new Date()
+    console.log(date.getTime());
+
+    // 2. +new Date()
+    console.log(+new Date());
+
+    // 3. Date.now()
+    console.log(Date.now());
+
+
+
+    // 2. +new Date() 可以指定时间
+    console.log(+new Date());
+    console.log('_______________');
+    console.log(+new Date('2022-4-1 18:30:00'));
+
 
 </script>
 
