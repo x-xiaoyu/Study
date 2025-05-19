@@ -31,6 +31,7 @@
   </form>
 
   <h1>就业榜</h1>
+  <div class="title">共有数据<span>0</span>条</div>
   <table>
     <thead>
       <tr>
@@ -72,7 +73,7 @@
       }
     ]
 
-    // 1.先存数据
+    // 1.先存数据 除了第一次需要打开 剩下的都要注释
     // localStorage.setItem('data', JSON.stringify(initData))
 
     //  1. 渲染业务
@@ -80,19 +81,42 @@
     // （1） 本地存储有数据 记得转换为对象 然后存储到变量里面，后期用于渲染页面 逻辑中断
     const arr = JSON.parse(localStorage.getItem('data')) || []
     // console.log(arr);
-    // （2） 如果没有数据， 则用空数组来代替
+    // （2） 如果没有数据， 则用空数组来代替||[]
+
+    // 1.2 利用map和join方法来渲染页面
+    // (2).1 把tbody 先获取过来
+    const tbody = document.querySelector('tbody')
+
+    function render() {
+      // （1）利用map 遍历数组，返回对应tr的数组
+      const trArr = arr.map(function (ele) {
+        return `
+        <tr>
+          <td>${ele.stuId}</td>
+          <td>${ele.uname}</td>
+          <td>${ele.age}</td>
+          <td>${ele.gender}</td>
+          <td>${ele.salary}</td>
+          <td>${ele.city}</td>
+          <td>
+            <a href="javascript:">删除</a>
+          </td>
+        </tr> 
+        `
+      })
+      // console.log(trArr);//检查tr是否添加成功
+
+      // （2）把数组转换为字符串join
+      // （3）把生成的字符串追加给tbody
+      tbody.innerHTML = trArr.join("")
+      // 显示共记有几条数据
+      document.querySelector('.title span').innerHTML = arr.length
+
+    }
 
 
 
-
-
-
-
-
-
-
-
-
+    render()
   </script>
 </body>
 
