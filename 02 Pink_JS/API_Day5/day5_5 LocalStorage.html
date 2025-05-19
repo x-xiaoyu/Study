@@ -17,7 +17,16 @@
         // 2. 获取
         console.log(localStorage.getItem('uname'));
         // 3. 删除
-        localStorage.removeItem('uname')
+        // localStorage.removeItem('uname')
+        // 4. 改 有这个键就是改 没有就是增
+        localStorage.setItem('uname', 'Pink老师')
+
+        // 5. 存一个年龄
+        // 本地存储只能存储字符串类型
+        localStorage.setItem('age', 18)
+        console.log(localStorage.getItem('age')); //得到的是字符串
+
+
 
     </script>
 </body>
