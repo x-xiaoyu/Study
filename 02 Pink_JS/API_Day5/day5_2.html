@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>window对象</title>
+    <title>事件循环</title>
 </head>
 
 <body>
     <script>
-        // 延时函数 只执行一次 平时省略window
+        console.log(1);
+        console.log(2);
         setTimeout(function () {
-            console.log('时间到了');
+            console.log(3);
 
-        }, 2000)
+        })
+        console.log(4);
 
 
     </script>
