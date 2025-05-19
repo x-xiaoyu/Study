@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map方法和join方法</title>
+</head>
+
+<body>
+    <script>
+        const arr = ['red', 'blue', 'pink']
+        // 1. 数组map方法 遍历数组处理厨具 并返回新的数组
+        const newArr = arr.map(function (ele, index) {
+            // console.log(ele); //数组元素
+            // console.log(index); //索引号
+            return ele + '颜色'
+
+
+        })
+        console.log(newArr);
+
+        // 2. 数组join方法 把数组转换为字符串 小括号为空 则逗号分隔
+        console.log(newArr.join());
+
+
+    </script>
+</body>
+
+</html>
