@@ -60,17 +60,31 @@
     </tbody>
   </table>
   <script>
-  // 参考数据
-      // const initData = [
-      //   {
-      //     stuId: 1001,
-      //     uname: '欧阳霸天',
-      //     age: 19,
-      //     gender: '男',
-      //     salary: '20000',
-      //     city: '上海',
-      //   }
-      // ]
+    // 参考数据
+    const initData = [
+      {
+        stuId: 1001,
+        uname: '欧阳霸天',
+        age: 19,
+        gender: '男',
+        salary: '20000',
+        city: '上海',
+      }
+    ]
+
+    // 1.先存数据
+    localStorage.setItem('data', JSON.stringify(initData))
+
+    //  1. 渲染业务
+    //  1.1 先读取本地存储的数据
+    // （1） 本地存储有数据 记得转换为对象 然后存储到变量里面，后期用于渲染页面 逻辑中断
+    const arr = JSON.parse(localStorage.getItem('data')) || []
+    // console.log(arr);
+    // （2） 如果没有数据， 则用空数组来代替
+
+
+
+
   </script>
 </body>
 
