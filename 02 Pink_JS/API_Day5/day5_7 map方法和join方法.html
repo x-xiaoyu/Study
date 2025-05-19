@@ -14,14 +14,16 @@
         const newArr = arr.map(function (ele, index) {
             // console.log(ele); //数组元素
             // console.log(index); //索引号
-            return ele + '颜色'
+            return ele + '颜色' // ['red颜色', 'blue颜色', 'pink颜色']
 
 
         })
         console.log(newArr);
 
         // 2. 数组join方法 把数组转换为字符串 小括号为空 则逗号分隔
-        console.log(newArr.join());
+        console.log(newArr.join()); //red颜色,blue颜色,pink颜色
+        console.log(newArr.join('')); //red颜色blue颜色pink颜色
+        console.log(newArr.join('|')); //red颜色|blue颜色|pink颜色
 
 
     </script>
