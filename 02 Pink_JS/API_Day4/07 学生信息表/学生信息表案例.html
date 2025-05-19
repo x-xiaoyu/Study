@@ -67,6 +67,8 @@
     const salary = document.querySelector('.salary')
     const city = document.querySelector('.city')
     const tbody = document.querySelector('tbody')
+    // 7.1 获取带有所有name属性的元素
+    const items = document.querySelectorAll('[name]')
 
     // 声明一个空的数组， 增加和删除都是对这个数组进行操作
     const arr = []
@@ -78,6 +80,16 @@
       // 阻止默认行为 不跳转 function 里加上e
       e.preventDefault()
       // console.log(11); //此时submit之后就可以打印出来11了
+
+      // 7. 判断输入是否为空 表单验证 如果不通过，不需要添加数据
+      // 先遍历循环
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].value === '') {
+          return alert('输入内容不能为空')
+        }
+      }
+
+
       // 2.1 创建新的对象 用户输入了就可以拿到这个值了
       const obj = {
         stuId: arr.length + 1,
@@ -102,6 +114,9 @@
 
     // 3.渲染函数 因为增加和删除都需要渲染
     function render() {
+      // 5. 为了解决重复提交的bug 每次录入数据前 先清空之前的数据 清空 tbody
+      tbody.innerHTML = ''
+
       // 遍历arr数组 看看有多少数据 然后生成tr
       for (let i = 0; i < arr.length; i++) {
         // 生成tr
@@ -115,14 +130,30 @@
           <td>${arr[i].salary}</td>
           <td>${arr[i].city}</td>
           <td>
-            <a href="javascript:">删除</a>
+            <a href="javascript:" data-id = ${i}>删除</a>
           </td>`
-
-        // 追加（增加元素 父元素.appendChild(子元素)
+        // 6.2上面a添加自定义属性 这样后面就知道删谁了 在每次遍历的时候 生成一个新的自定义属性
+        // 追加（增加元素 父元素.appendChild(子元素) 因为是后追加 所以会有bug 重复提交之前的表单数据
         tbody.appendChild(tr)
       }
     }
 
+
+    // 6. 删除操作
+    // 6.1 事件委托 tbody
+    tbody.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        // alert(11) 事件添加成功
+        // 6.3 得到当前元素的自定义属性 data-id
+        // console.log(e.target.dataset.id); 从1 开始删 到 0 这个顺序
+        // 删除arr 数组里对应的数据
+        arr.splice(e.target.dataset.id, 1)
+        // console.log(arr) //确认删除成功
+        // 重新渲染一次
+        render()
+
+      }
+    })
 
 
 
