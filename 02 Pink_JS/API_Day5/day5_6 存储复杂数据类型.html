@@ -19,8 +19,21 @@
             gender: '女'
         }
 
-        // 存储复杂数据类型
-        localStorage.setItem('obj', obj)
+        // 存储复杂数据类型 
+        // localStorage.setItem('obj', obj) //无法直接使用
+        // 取
+        // console.log(localStorage.getItem('obj')); //字符串 
+
+        // 复杂数据类型 必须转换为JSON字符串类型
+        // JSON对象 属性和值有引号，而且引号统一是双引号
+        localStorage.setItem('obj', JSON.stringify(obj)) //转换
+        console.log(localStorage.getItem('obj')); //字符串类型的数据
+        console.log(typeof (localStorage.getItem('obj'))); //String
+        console.log(JSON.parse(localStorage.getItem('obj'))); //把JSON转换为对象
+
+
+
+
 
     </script>
 </body>
