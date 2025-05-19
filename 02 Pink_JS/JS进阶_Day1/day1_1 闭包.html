@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+
+<body>
+    <script>
+        // // 1. 闭包 简单写法
+        // function outer() {
+        //     const a = 10
+        //     function inner() {
+        //         console.log(a);
+
+        //     }
+        //     inner()
+        // }
+        // outer()
+
+
+        // 2.常见的闭包形式 外部可以访问使用 函数内部的变量
+        function outer() {
+            let a = 10
+            function fn() {
+                console.log(a);
+
+            }
+            // fn()
+            return fn //返回fn函数 外部可以引用
+        }
+        outer()
+
+        // 外面使用这个10
+        // 在里面写return就好了
+
+        // outer() === fn === function fn(){}
+        const fun = outer()
+        // const fun = function fn(){}
+        fun() //调用函数
+
+
+
+    </script>
+</body>
+
+</html>
