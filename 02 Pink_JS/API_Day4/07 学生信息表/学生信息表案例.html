@@ -60,6 +60,79 @@
     </tbody>
   </table>
   <script>
+    // 2. 获取元素
+    const uname = document.querySelector('.uname')
+    const age = document.querySelector('.age')
+    const gender = document.querySelector('.gender')
+    const salary = document.querySelector('.salary')
+    const city = document.querySelector('.city')
+    const tbody = document.querySelector('tbody')
+
+    // 声明一个空的数组， 增加和删除都是对这个数组进行操作
+    const arr = []
+    // 1. 点击模块
+    // 1.1 表单提交事件（虽然是点击了button但是其实是form提交）
+    const info = document.querySelector('.info')
+    info.addEventListener('submit', function (e) {
+      // console.log(11); //只要提交就会打印 会自动跳转 所以接下来要阻止默认行为
+      // 阻止默认行为 不跳转 function 里加上e
+      e.preventDefault()
+      // console.log(11); //此时submit之后就可以打印出来11了
+      // 2.1 创建新的对象 用户输入了就可以拿到这个值了
+      const obj = {
+        stuId: arr.length + 1,
+        uname: uname.value,
+        age: age.value,
+        gender: gender.value,
+        salary: salary.value,
+        city: city.value
+      }
+      // console.log(obj); //验证用户是否可以输入成功并且获取到
+      // 2.2追加给数组里面
+      arr.push(obj)
+      // console.log(arr); //确认每次录入信息之后 会形成新的数组
+      // 2.3清空表单
+      this.reset() //this指的是info reset()重置 输入框里会清空
+
+      // 4. 调用渲染函数
+      render()
+
+    })
+
+
+    // 3.渲染函数 因为增加和删除都需要渲染
+    function render() {
+      // 遍历arr数组 看看有多少数据 然后生成tr
+      for (let i = 0; i < arr.length; i++) {
+        // 生成tr
+        const tr = document.createElement('tr')
+        // 把前面注释掉的td直接复制过来 然后把固定的数据换成${}变成实时数据
+        tr.innerHTML = `
+          <td>${arr[i].stuId}</td>
+          <td>${arr[i].uname}</td>
+          <td>${arr[i].age}</td>
+          <td>${arr[i].gender}</td>
+          <td>${arr[i].salary}</td>
+          <td>${arr[i].city}</td>
+          <td>
+            <a href="javascript:">删除</a>
+          </td>`
+
+        // 追加（增加元素 父元素.appendChild(子元素)
+        tbody.appendChild(tr)
+      }
+    }
+
+
+
+
+
+
+
+
+
+  </script>
+  <!-- <script>
     // 获取元素
     const uname = document.querySelector('.uname')
     const age = document.querySelector('.age')
@@ -145,7 +218,7 @@
         render()
       }
     })
-  </script>
+  </script> -->
 
 </body>
 
