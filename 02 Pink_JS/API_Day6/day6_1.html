@@ -8,7 +8,23 @@
 </head>
 
 <body>
+    <script>
+        const str = '我们在学习前端，希望学习前端能高薪毕业'
+        // 正则表达式的使用： 正则里面不需要引号
+        // 1， 定义规则
+        const reg = /前端/
 
+        // 2. 是否匹配
+        // reg.test(str)
+        // console.log(reg.test(str)); //返回true or false
+
+        // exec() 拿到数组 告诉索引号 reg从哪里开始
+        console.log(reg.exec(str));
+
+
+
+
+    </script>
 </body>
 
 </html>
