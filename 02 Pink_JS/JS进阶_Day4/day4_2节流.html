@@ -20,7 +20,8 @@
 
 <body>
   <div class="box"></div>
-
+  <!-- 引入资源 -->
+  <!-- <script src="./src/lodash.min.js"></script> -->
   <script>
     const box = document.querySelector('.box')
     let i = 1
@@ -28,25 +29,30 @@
       box.innerHTML = i++
     }
 
-    // 手写防抖函数 setTimeout()
-    // 如果没有定时器，则开启定时器，存入到定时器变量里面
-    // 定时器里面写函数调用
-    function debounce(fn, t) {
-      // 声明一个定时器变量
-      let timer
-      // return 返回一个匿名函数
-      return function () {
-        // 每次鼠标移动 的时候都先判断是否有定时器，如果有就清楚
-        if (timer) clearTimeout(timer)
-        timer = setTimeout(function () {
-          fn() //加小括号调用 fn函数
-        }, t)
+    // box.addEventListener('mousemove', mouseMove)
 
+    // 1. lodash库
+    // box.addEventListener('mousemove', _.throttle(mouseMove, 500))
+
+    // 2. 手写节流
+    function throttle(fn, t) {
+      let timer = null
+      return function () {
+        if (!timer) {
+          timer = setTimeout(function () {
+            fn()
+            // 清空定时器 不同clearTimeout 在setTimeout 里面是无法清除定时器的不可能在里面再清除定时器
+            timer = null
+          }, t)
+
+        }
       }
 
-    }
-    box.addEventListener('mousemove', debounce(mouseMove, 500))
 
+
+    }
+
+    box.addEventListener('mousemove', throttle(mouseMove, 500))
   </script>
 </body>
 
