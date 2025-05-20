@@ -9,26 +9,38 @@
 
 <body>
     <script>
-        // 1. 元字符
-        // 边界符
-        console.log(/哈/.test('哈')); //true
-        console.log(/哈/.test('哈哈')); //true
-        console.log(/哈/.test('二哈')); //true
+        // // 1. 元字符
+        // // 边界符
+        // console.log(/哈/.test('哈')); //true
+        // console.log(/哈/.test('哈哈')); //true
+        // console.log(/哈/.test('二哈')); //true
+
+        // console.log('-----------');
+
+        // // 边界符 
+        // console.log(/^哈/.test('哈')); //true 以哈开头
+        // console.log(/^哈/.test('哈哈')); //true
+        // console.log(/^哈/.test('二哈')); // false
+
+        // console.log('-----------');
+
+        // console.log(/^哈$/.test('哈')); // ture 以$为结尾 只有这种情况为true 否则全为false
+        // console.log(/^哈$/.test('哈哈')); // false 只能出现一个哈 精确匹配
+        // console.log(/^哈$/.test('二哈')); // false
 
         console.log('-----------');
-
-        // 边界符 
-        console.log(/^哈/.test('哈')); //true 以哈开头
-        console.log(/^哈/.test('哈哈')); //true
-        console.log(/^哈/.test('二哈')); // false
-
+        // * 类似 >= 0次
+        console.log(/^哈$/.test('哈')); //true
+        console.log(/^哈*$/.test('')); //true 可以0到多次
+        console.log(/^哈*$/.test('哈')); //true
+        console.log(/^哈*$/.test('二哈很傻')); //false 开头结尾都是哈
         console.log('-----------');
 
-        console.log(/^哈$/.test('哈')); // ture 以$为结尾 只有这种情况为true 否则全为false
-        console.log(/^哈$/.test('哈哈')); // false 只能出现一个哈 精确匹配
-        console.log(/^哈$/.test('二哈')); // false
 
-        console.log('-----------');
+
+
+
+
 
     </script>
 </body>
