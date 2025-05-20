@@ -200,6 +200,37 @@
     </div>
   </div>
   <script>
+    // -------------------  发送短信验证码模块  ---------------------------
+    // 1. 获取元素
+    const code = document.querySelector('.code')
+    // 1.4 因为如果有人一直点击重新发送验证码 他会无限重新获取 所以要通过一个变量控制
+    let flag = true
+    // 1.1n点击事件
+    code.addEventListener('click', function () {
+      if (flag) {
+        flag = false //点击之后变成false 就可以避免重复点击
+        // 1.3 因为要开启定时器 所以要先声明变量
+        let i = 5
+        code.innerHTML = `0${i}秒后重新获取` //点击完毕之后立马触发
+
+        // 1.2 开定时器
+        let timeId = setInterval(function () {
+          i--
+          // 因为点击完发送验证码之后 要显示还剩x秒，再次发送验证码
+          code.innerHTML = `0${i}秒后重新获取`
+          // 超过0秒之后要停止
+          if (i === 0) {
+            clearInterval(timeId)
+
+            // 重新获取
+            code.innerHTML = `重新获取`
+
+            flag = true //1.5到时间了 可以开启
+          }
+        }, 1000)
+      }
+    })
+    // -------------------  表单验证模块  ---------------------------
 
 
   </script>

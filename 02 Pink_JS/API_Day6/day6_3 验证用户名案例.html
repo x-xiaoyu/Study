@@ -32,10 +32,21 @@
     <input type="text">
     <span></span>
     <script>
-        const input = document.querySelector('.text')
-        if () {
+        // 1. 准备正则
+        const reg = /^[a-zA-Z0-9-_]{6,16}$/
+        const input = document.querySelector('input')
+        const span = input.nextElementSibling
+        input.addEventListener('blur', function () {
+            // console.log(reg.test(this.value)) //检测正则是否有错误
+            if (reg.test(this.value)) {
+                span.innerHTML = '输入正确'
+                span.className = 'right'
+            } else {
+                span.innerHTML = '请输入6~16位的英文数字下划线'
+                span.className = 'error'
+            }
+        })
 
-        }
     </script>
 </body>
 
