@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数-this</title>
+</head>
+
+<body>
+    <script>
+
+        // // 1. 以前this的指向 谁调用的这个函数 this就指向谁
+        // console.log(this); //window
+
+        // // 普通函数
+        // function fn() {
+        //     console.log(this); //window
+        // }
+        // window.fn()
+
+        // // 对象方法里面的this 
+        // const obj = {
+        //     name: 'andy',
+        //     sayHi: function () {
+        //         console.log(this);//obj
+        //     }
+        // }
+        // obj.sayHi()
+
+
+        // —————————————————————————— 分割线 ——————————————————————————
+
+        // 2. 箭头函数的this
+        // const fn = () => {
+        //     console.log(this);//window 因为这个没有上一层 所以就是script 就是指向window
+        // }
+        // fn()
+
+        // // 对象方法箭头函数this
+        // const obj = {
+        //     uname: 'pink老师',
+        //     sayHi: () => {
+        //         console.log(this); //window
+        //     }
+        // }
+        // obj.sayHi()
+
+
+        const obj = {
+            uname: 'pink老师',
+            sayHi: function () {
+                let i = 10
+                const count = () => {
+                    console.log(this); //obj
+                }
+                count()
+            }
+        }
+        obj.sayHi()
+        count()
+    </script>
+</body>
+
+</html>
