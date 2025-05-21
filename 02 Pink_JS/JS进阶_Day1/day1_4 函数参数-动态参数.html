@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数参数-动态参数</title>
+</head>
+
+<body>
+    <script>
+        function getSum() {
+            // argument 动态参数 只存在于函数里面
+            // 1. 是个伪数组:有索引号 有下标 
+            console.log(arguments);
+
+            i = 0
+            for (let i = 0; i < arguments.length; i++) {
+                sum += arguments[i]
+            }
+            console.log(sum);
+
+        }
+
+        getSum(2, 3)
+        getSum(1, 2, 3)
+        getSum(2, 2, 3, 4)
+    </script>
+</body>
+
+</html>
