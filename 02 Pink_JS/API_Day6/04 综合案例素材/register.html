@@ -293,7 +293,28 @@
       span.innerText = ''
       return true
     }
+    // 5. 密码的再次验证 复制上面的
+    const confirm = document.querySelector('[name = confirm]')
+    confirm.addEventListener('change', verifyConfirm)
+    function verifyConfirm() {
+      const span = confirm.nextElementSibling
+      // 不需要定规则 因为他只要跟第一次输入的密码一致就行
+      // 当前表单的值不等于密码框的值
+      if (confirm.value !== password.value) {
+        span.innerText = '两次密码输入不一致'
+        return false
+      }
+      span.innerText = ''
+      return true
+    }
 
+    // 6. 我同意模块 toggle
+    const queren = document.querySelector('.icon-queren')
+    // queren是插件的命名 不是随机取名
+    queren.addEventListener('click', function () {
+      // 切换类 原来有的就删掉，原来没有就添加
+      this.classList.toggle('icon-queren2')
+    })
 
 
 
