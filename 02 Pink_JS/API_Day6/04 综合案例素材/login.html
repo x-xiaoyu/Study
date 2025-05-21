@@ -21,7 +21,8 @@
   <!-- 登录内容 -->
   <div class="xtx-login-main">
     <div class="wrapper">
-      <form action="">
+      <!-- autocomplete = "off" 不给你记录提示-->
+      <form action="" autocomplete="off">
         <div class="box">
           <div class="tab-nav">
             <a href="javascript:;" class="active" data-id="0">账户登录</a>
@@ -33,6 +34,7 @@
             </div>
             <div class="input">
               <span class="iconfont icon-zhanghao"></span>
+              <!-- required属性  如果是空的就不行 h5新方法-->
               <input required type="text" placeholder="请输入用户名称/手机号码" name="username">
             </div>
             <div class="input">
@@ -77,9 +79,9 @@
     </div>
   </div>
   <script>
-    // 1. tab栏切换 事件委托 
+    // 1. ———————————— tab栏切换 事件委托 ————————————————
     const tab_nav = document.querySelector('.tab-nav')
-    // 2.1 二维码登录与密码登录 两个盒子 一个显示一个隐藏
+    // 1.2 二维码登录与密码登录 两个盒子 一个显示一个隐藏
     const pane = document.querySelectorAll('.tab-pane')
     // 1.1 事件监听
     tab_nav.addEventListener('click', function (e) {
@@ -89,15 +91,46 @@
         // 当前元素添加
         e.target.classList.add('active')
 
-        // 2.2 利用for循环 先干掉所有人
+        // 1.3 利用for循环 先干掉所有人
         for (let i = 0; i < pane.length; i++) {
           pane[i].style.display = 'none'
         }
 
-        // 2.3 让对应序号的 大Pane显示 因为标签里面有id属性 所以这里直接dataset.id
+        // 1.4 让对应序号的 大Pane显示 因为标签里面有id属性 所以这里直接dataset.id
         pane[e.target.dataset.id].style.display = 'block'
       }
     })
+
+    // 2. ———————————— 点击登陆跳转页面 ————————————————
+    // 2.1 获取form
+    const form = document.querySelector('form')
+    // 2.3获取name属性
+    const agree = document.querySelector('[name = agree]')
+
+    // 3.2 获取用户输入的username
+    const username = document.querySelector('[name = username]')
+
+    // 2.2添加事件监听
+    form.addEventListener('submit', function (e) {
+      // 上来先阻止提交 以防万一
+      e.preventDefault()
+      // 2.4 如果name的checked属性是false 则提示 返回true 或false
+      if (!agree.checked) {
+        return alert('请勾选同意协议')
+      }
+
+      // 3. 假设密码和用户名是对的（后端确认）
+      // 3.1 记录用户名到本地存储
+      localStorage.setItem('xtx-uname', username.value)
+      // 跳转到首页
+      location.href = './index.html'
+    })
+
+
+
+
+
+
 
 
 
