@@ -319,7 +319,28 @@
 
     // -------------------  表单提交模块  ---------------------------
     // 7. 表单提交模块
+    const form = document.querySelector('form')
+    form.addEventListener('submit', function (e) {
+      //7.1 先确认我同意有没有勾选上 判断 如果有icon-queren2说明勾选了，否则没勾选
+      if (!queren.classList.contains('icon-queren2')) {
+        alert('请勾选同意协议')
+        // 阻止提交 没有这个的话 会alert 但会提交 所以也要阻止默认行为
+        e.preventDefault()
 
+      }
+
+      // 7.2 依次判断上面的模块是否有false 如果有  就停止执行
+      // console.log(verifyName()); //拿到true 或者false
+      if (!verifyName()) e.preventDefault()
+      if (!verifyPhone()) e.preventDefault()
+      if (!verifyCode()) e.preventDefault()
+      if (!verifyPassword()) e.preventDefault()
+      if (!verifyConfirm()) e.preventDefault()
+
+
+
+
+    })
 
 
 
