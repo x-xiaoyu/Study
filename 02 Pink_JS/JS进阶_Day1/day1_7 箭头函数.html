@@ -50,8 +50,21 @@
 
         // —————————————— 直接写下面的  ——————————
 
-        const fn = x => x + x
-        console.log(fn(1));
+        // const fn = x => x + x
+        // console.log(fn(1));
+
+
+        // 5. 箭头函数可以直接返回一个对象 
+        //          形参      返回uname属性：形参(属性值) 
+        const fn = (name) => ({ uname: uname })
+        //               实参
+        console.log(fn('刘德华'));
+
+
+
+
+
+
 
     </script>
 </body>
