@@ -79,6 +79,8 @@
   <script>
     // 1. tab栏切换 事件委托 
     const tab_nav = document.querySelector('.tab-nav')
+    // 2.1 二维码登录与密码登录 两个盒子 一个显示一个隐藏
+    const pane = document.querySelectorAll('.tab-pane')
     // 1.1 事件监听
     tab_nav.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
@@ -86,8 +88,18 @@
         tab_nav.querySelector('.active').classList.remove('active')
         // 当前元素添加
         e.target.classList.add('active')
+
+        // 2.2 利用for循环 先干掉所有人
+        for (let i = 0; i < pane.length; i++) {
+          pane[i].style.display = 'none'
+        }
+
+        // 2.3 让对应序号的 大Pane显示 因为标签里面有id属性 所以这里直接dataset.id
+        pane[e.target.dataset.id].style.display = 'block'
       }
     })
+
+
 
   </script>
 </body>
