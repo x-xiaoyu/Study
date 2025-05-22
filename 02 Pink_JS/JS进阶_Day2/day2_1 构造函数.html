@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+</head>
+
+<body>
+    <script>
+        // 创建一个猪 构造函数
+        //             形参
+        function Pig(uname, age) {
+            // 实参佩奇给了uname形参
+            //           形参
+            // this.name创建对象的name属性
+            // 形参uname赋值到this.name上
+            this.name = uname
+            this.age = age
+        }
+
+        //              实参
+        const Pig1 = new Pig('佩奇', 6)
+        console.log(Pig1);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
