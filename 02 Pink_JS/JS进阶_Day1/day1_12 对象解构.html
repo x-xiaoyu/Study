@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值-对象解构</title>
+</head>
+
+<body>
+    <script>
+        // //   对象解构
+        // const obj = {
+        //     uname: 'Pink老师',
+        //     age: 18
+        // }
+
+        // // obj.name
+        // // obj.age
+        // // 解构语法 变量名     和  属性名一样
+        // const { uname, age } = { uname: 'Pink老师', age: 18 }
+        // // 等价于const uname = obj.name
+        // console.log(uname);
+        // console.log(age);
+
+        // 1. 对象解构的额变量名可以重新改名 旧变量名:变量名
+        // const { uname: username, age } = { uname: 'Pink老师', age: 18 }
+
+        // 2. 结构数组对象
+        const pig = [
+            {
+                uname: '佩奇',
+                age: 18
+            }
+        ]
+
+        const [{ uname, age }] = pig
+        console.log(uname);
+        console.log(age);
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值-对象解构练习</title>
+</head>
+
+<body>
+    <script>
+        // 1. 对象解构赋值
+        const pig = { name: '佩奇', age: 6 };
+        const { name, age } = pig;
+        console.log('名字:', name); // 输出：佩奇
+        console.log('年龄:', age); // 输出：6
+
+        // 2. 把 name 改成 uname
+        const { name: uname } = pig;
+        console.log('uname:', uname); // 输出：佩奇
+
+        // 3. 数组对象解构
+        const goods = [
+            {
+                goodsName: '小米',
+                price: 1999
+            },
+            {
+                goodsName: '苹果',
+                price: 5999
+            }
+        ];
+
+        // 遍历数组进行解构
+        for (const { goodsName, price } of goods) {
+            console.log(`商品名: ${goodsName}, 价格: ${price}`);
+        }
+
+
+    </script>
+</body>
+
+</html>
