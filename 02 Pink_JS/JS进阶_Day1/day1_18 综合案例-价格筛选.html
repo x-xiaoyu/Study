@@ -149,6 +149,28 @@
     ]
 
 
+    // 1. 渲染函数 封装
+    function render(arr) {
+      // 2. 声明空字符串
+      let str = ''
+
+      // 3. 遍历数组 增加
+      arr.forEach(item => {
+        // 6. 解构
+        const { name, picture, price } = item
+        // 4. 复制格式 7. 填充
+        str += `
+        <div class="item">
+          <img src="${picture}" alt="">
+          <p class="name">${name}</p>
+          <p class="price">${price}</p>
+        </div>
+        `
+      })
+      //5. 追加给list
+      document.querySelector('.list').innerHTML = str
+    }
+    render(goodsList) //页面一打开就渲染
 
   </script>
 </body>
