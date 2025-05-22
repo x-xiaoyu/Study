@@ -137,7 +137,7 @@
       {
         id: '3997403',
         name: '手工吹制更厚实白酒杯壶套装6壶6杯',
-        price: '99.00',
+        price: '100.00',
         picture: 'https://yanxuan-item.nosdn.127.net/af2371a65f60bce152a61fc22745ff3f.jpg',
       },
       {
@@ -148,7 +148,7 @@
       },
     ]
 
-
+    // —————————————————————————— 任务1：渲染页面 —————————————————————————
     // 1. 渲染函数 封装
     function render(arr) {
       // 2. 声明空字符串
@@ -171,6 +171,49 @@
       document.querySelector('.list').innerHTML = str
     }
     render(goodsList) //页面一打开就渲染
+
+    // —————————————————————————— 任务2：过滤筛选 ——————————————————————————
+    document.querySelector('.filter').addEventListener('click', e => {
+      // 解构
+      // e.target.dataset.index e.target.tagName
+      const { tagName, dataset } = e.target
+      // 判断
+      if (tagName === 'A') {
+        // console.log(11);
+        // arr 是返回的新数组
+        let arr = goodsList
+        if (dataset.index === '1') {
+          // 经典款式
+          // goodsList.filter(function (item) {
+          //   return item.price > 0 && item.price <= 100
+          // })
+          // 箭头函数
+          arr = goodsList.filter(item => item.price > 0 && item.price <= 100)
+        } else if (dataset.index === '2') {
+          arr = goodsList.filter(item => item.price >= 100 && item.price <= 300)
+        } else if (dataset.index === '3') {
+          arr = goodsList.filter(item => item.price >= 300)
+        }
+        // console.log(arr); //检测0-100元 100-300 300+是否拿到数据
+        // 渲染 把该有的图片换上去 
+        render(arr)
+      }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </script>
 </body>
