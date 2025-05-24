@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array常用方法</title>
+</head>
+
+<body>
+    <script>
+        // const arr = ['red', 'blue', 'green']
+
+        // const color = arr.find(function (item) {
+        //     return item === 'blue'
+        // })
+
+        // console.log(color);
+
+        const arr = [
+            {
+                name: '小米',
+                price: 1999
+            },
+
+            {
+                name: '华为',
+                price: 4999
+            },
+        ]
+
+        // 找小米这个对象，并且返回这个对象
+        // arr.find(function (item) {
+        //     // console.log(item.name); //拿到小米、华为
+        //     return item.name == '小米'
+        // })
+        const mi = arr.find(item => item.name == '小米')
+        console.log(mi);
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
