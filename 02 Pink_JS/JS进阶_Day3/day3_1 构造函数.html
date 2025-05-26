@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数 公共的属性和方法 封装到Star 构造函数里面了
+        function Star(uname, age) {
+            this.name = uname
+            this.age = age
+            // this.sing = function () {
+            //     console.log('唱歌');
+            // }
+        }
+
+        Star.prototype.sing = function () {
+            console.log('唱歌');
+        }
+
+        const ldh = new Star('刘德华', 55)
+        const zxy = new Star('张学友', 58)
+        ldh.sing()//调用 先确认是否能调用
+        zxy.sing()//调用 先确认是否能调用
+
+        // console.log(ldh === zxy); //false
+        // console.log(ldh.sing === zxy.sing); //false
+
+        console.log(Star.prototype); //原型
+
+
+
+    </script>
+
+</body>
+
+</html>
