@@ -156,6 +156,10 @@
       const { picture, name, count, price, spec, gift } = item
       // 3.1 解构+获取所有属性值+转换字符串
       const text = Object.values(spec).join('/')
+      // 5.1 计算小计模块 单价*数量 保留两位小数
+      // 注意精度问题 因为保留两位小数 所以乘以100
+      const subTotal = ((price * 100 * count) / 100).toFixed(2)
+
       // 4.1 处理赠品模块 三元判断是因为有的数据里面没有gift属性
       const str = gift
         ? gift.split(',').map(item => `<span class="tag">【赠品】${item}</span>`).join(' ')
@@ -168,15 +172,18 @@
           <p class="spec">${text}</p>
           <p class="price">${price.toFixed(2)}</p>
           <p class="count">x${count}</p>
-          <p class="sub-total">579.80</p>
+          <p class="sub-total">${subTotal}</p>
         </div>
       `
-
     }).join('') //得到数组 然后join一下转成字符串
 
 
 
-
+    // 6.合计模块 这里就不解构了
+    const total = goodsList.reduce((prev, item) => prev + (item.price * 100 * item.count) / 100, 0)
+    // console.log(total);
+    // 保留两位小数
+    document.querySelector('.amount').innerHTML = total.toFixed(2)
 
 
 
