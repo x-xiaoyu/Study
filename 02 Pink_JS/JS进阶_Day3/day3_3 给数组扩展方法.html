@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给数组扩展方法</title>
+</head>
+
+<body>
+
+    <script>
+        // 求数组扩展 求最大值方法 和 求和方法
+        // 自己定义 数组扩展方法 求和 和最大值
+        // 1. 我们定义的这个方法 任何一个数组实例对象都可以使用
+        // 2. 自定义的方法写到 数组prototype身上 
+
+        // 1.求最大值
+        const arr = [1, 2, 3] //arr就是这个
+        Array.prototype.max = function (arr) {
+            // 展开运算符
+            return Math.max(...this) //把arr（下面的实参）传进来了
+            // 原型函数里面的this指向实例对象
+        }
+
+        Array.prototype.min = function (arr) {
+            // 展开运算符
+            return Math.min(...this) //把arr（下面的实参）传进来了
+            // 原型函数里面的this指向实例对象
+        }
+
+        // 因为是arr调用的max 所以this指向的实例对象就是arr 
+        console.log(arr.max());
+        console.log(arr.min());
+
+        // const arr = new Array(1, 2)
+        // console.log(arr);
+
+        // 3. 求和方法
+        Array.prototype.sum = function () {
+            return this.reduce((prev, item) => prev + item, 0)
+        }
+        console.log([1, 2, 3].sum());
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

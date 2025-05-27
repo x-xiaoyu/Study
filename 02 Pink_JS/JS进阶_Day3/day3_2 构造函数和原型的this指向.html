@@ -8,7 +8,24 @@
 </head>
 
 <body>
+
     <script>
+        let that
+        function Star(uname) {
+            that = this
+            this.uname = uname //this 指向
+        }
+
+        Star.prototype.sing = function () {
+            // 在原型里面的this指的是ldh
+            console.log('唱歌');
+
+        }
+
+        //  实例对象ldh 构造函数里面的this就是实例对象ldh
+        const ldh = new Star('刘德华') //调用了
+        ldh.sing() //谁调用 this指谁
+        console.log(that === ldh);
 
 
     </script>

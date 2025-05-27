@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor属性</title>
+</head>
+
+<body>
+
+    <script>
+        function Star() {
+
+        }
+
+        // const ldh = new Star()
+        // // console.log(Star.prototype); 
+        // console.log(Star.prototype.constructor === Star); //true
+
+        console.log(Star.prototype); //有constructor
+        Star.prototype = {
+            sing: function () {
+                console.log('唱歌');
+
+            },
+            dance: function () {
+                console.log('跳舞');
+
+            },
+        }
+        console.log(Star.prototype); //没有其他方法 没有constructor
+
+
+
+    </script>
+
+</body>
+
+</html>
