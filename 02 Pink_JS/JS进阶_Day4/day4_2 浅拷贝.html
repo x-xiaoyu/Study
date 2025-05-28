@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const obj = {
+      uname: 'pink',
+      age: 18,
+      family: {
+        baby: '小pink'
+      }
+    }
+    // 浅拷贝
+    // const o = { ...obj } //拷贝成了新对象
+    // console.log(o)
+
+    // o.age = 20 //再次赋值 改变了 age
+    // console.log(o)
+    // console.log(obj) // obj还是原来的obj
+
+
+    const o = {}
+    Object.assign(o, obj) //（拷到哪里，从哪里拷）
+    o.age = 20 //age改成了20 
+
+    o.family.baby = '老pink' // 这个原本的obj也被改了 浅拷贝的bug 只能拷贝第一层
+    console.log(o)
+    console.log(obj)
+
+  </script>
+</body>
+
+</html>
