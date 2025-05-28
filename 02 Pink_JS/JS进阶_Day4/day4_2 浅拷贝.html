@@ -30,7 +30,7 @@
     Object.assign(o, obj) //（拷到哪里，从哪里拷）
     o.age = 20 //age改成了20 
 
-    o.family.baby = '老pink' // 这个原本的obj也被改了 浅拷贝的bug 只能拷贝第一层
+    o.family.baby = '老pink' // 这个原本的obj也被改了 浅拷贝的bug 只能拷贝第一层 不能嵌套复杂类型
     console.log(o)
     console.log(obj)
 
