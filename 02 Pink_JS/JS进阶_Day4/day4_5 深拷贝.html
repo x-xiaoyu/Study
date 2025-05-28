@@ -22,6 +22,7 @@
     // 拷贝函数
     function deepCopy(newObj, oldObj) {
       debugger
+      //  遍历对象用for in k是属性名(uname,age) oldObj[k]属性值(pink,18)
       for (let k in oldObj) {
         // 处理数组的问题  一定先写数组 在写 对象 不能颠倒
         if (oldObj[k] instanceof Array) {
@@ -35,7 +36,7 @@
         }
         else {
           //  k  属性名 uname age    oldObj[k]  属性值  18
-          // newObj[k]  === o.uname  给新对象添加属性
+          // newObj[k]  === o.uname  给新对象添加属性 这两个是等价的 但因为这里不能直接写o.uname所以要换成另外一个
           newObj[k] = oldObj[k]
         }
       }
@@ -54,10 +55,10 @@
     //   hobby: ['乒乓球', '足球']
     // }
     // function deepCopy({ }, oldObj) {
-    //   // k 属性名  oldObj[k] 属性值
+    //   // k 属性名  oldObj[k] 属性值 newObj[k]是属性名
     //   for (let k in oldObj) {
     //     // 处理数组的问题   k 变量
-    //     newObj[k] = oldObj[k]
+    //     newObj[k] = oldObj[k] //把旧的赋值给新的
     //     // o.uname = 'pink'
     //     // newObj.k  = 'pink'
     //   }
