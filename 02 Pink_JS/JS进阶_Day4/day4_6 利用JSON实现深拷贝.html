@@ -22,7 +22,7 @@
     }
     // 把对象转换为 JSON 字符串
     // console.log(JSON.stringify(obj))
-    const o = JSON.parse(JSON.stringify(obj))
+    const o = JSON.parse(JSON.stringify(obj)) //简单类型就不是地址了
     console.log(o)
     o.family.baby = '123'
     console.log(obj)
