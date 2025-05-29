@@ -4,28 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> axios错误处理</title>
+    <title>常用请求方法getpost-处理错误信息</title>
 </head>
 
 <body>
-    <!-- 
-    城市列表：http://hmajax.itheima.net/api/city
-    参数名：pname
-    值：省份名字
-    -->
-    <p></p>
+    <div class="btn">注册用户</div>
+    <!-- 地址：http://hmajax.itheima.net/api/register -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        axios({
-            url: 'http://hmajax.itheima.net/api/city',
-            // 查询参数
-            params: {
-                pname: '河北省'
-            }
-        }).then(result => {
-            console.log(result.data.list); //检查是否成功获取到结果 并返回成list
-            document.querySelector('p').innerHTML = result.data.list.join('<br>')
+        document.querySelector('.btn').addEventListener('click', () => {
+            axios({
+                url: 'http://hmajax.itheima.net/api/register',
+                // 指定请求方法
+                method: 'post',
+                // 提交数据
+                data: {
+                    username: 'itheimashiyan',
+                    password: '123456'
+                }
+            }).then(result => {
+                console.log(result);
+            })
         })
+
     </script>
 
 </body>
