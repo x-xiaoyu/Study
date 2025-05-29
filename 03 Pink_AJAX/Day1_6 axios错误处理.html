@@ -9,6 +9,7 @@
 
 <body>
     <div class="btn">注册用户</div>
+    <!-- 使用axios错误处理语法，拿到错误信息并用弹框返回给用户 -->
     <!-- 地址：http://hmajax.itheima.net/api/register -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
@@ -19,11 +20,16 @@
                 method: 'post',
                 // 提交数据
                 data: {
-                    username: 'itheimashiyan',
+                    username: 'itheimashiyanpin',
                     password: '123456'
                 }
             }).then(result => {
                 console.log(result);
+            }).catch(error => {
+                // 处理错误信息
+                console.log(error)
+                console.log(error.response.data.message) //具体原因返回出来了
+                alert(error.response.data.message) //弹窗出来了
             })
         })
 
