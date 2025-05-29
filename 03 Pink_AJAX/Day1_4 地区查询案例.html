@@ -45,14 +45,19 @@
         document.querySelector('.sel-btn').addEventListener('click', () => {
             // console.log('点击了'); //检查是否监听上了
             // 2. 获取省份和城市名字
-            let pName = document.querySelector('.province').value
-            let cName = document.querySelector('.city').value
+            let pname = document.querySelector('.province').value
+            let cname = document.querySelector('.city').value
+            // let pName = document.querySelector('.province').value
+            // let cName = document.querySelector('.city').value
             // 3. 基于axios请求地区列表数据
             axios({
                 url: 'http://hmajax.itheima.net/api/area',
                 params: {
-                    pname: pName,
-                    cname: cName
+                    // pname: pName,
+                    // cname: cName
+                    // 因为ES6的特性 如果属性值和属性名是一样的 就可以直接写一个
+                    pname,
+                    cname
                 }
             }).then(result => {
                 // console.log(result);
