@@ -23,6 +23,8 @@
       const xhr = new XMLHttpRequest()
       xhr.open('GET', 'http://hmajax.itheima.net/api/province')
       xhr.addEventListener('loadend', () => {
+        // console.log(xhr.response); //返回服务器响应结果
+
         // xhr如何判断响应成功还是失败的？
         // 2xx开头的都是成功响应状态码
         if (xhr.status >= 200 && xhr.status < 300) {
@@ -44,7 +46,7 @@
       // 服务器返回错误提示消息，插入到p标签显示
       document.querySelector('.my-p').innerHTML = error.message
     })
-    
+
   </script>
 </body>
 

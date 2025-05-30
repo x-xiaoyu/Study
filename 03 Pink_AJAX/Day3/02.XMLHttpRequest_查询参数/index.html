@@ -15,6 +15,7 @@
      * 目标：使用XHR携带查询参数，展示某个省下属的城市列表
     */
     const xhr = new XMLHttpRequest()
+    // .open() 是 XMLHttpRequest 对象的方法，用来初始化一个 HTTP 请求。它的作用是配置请求的类型（如 GET 或 POST）、目标 URL，以及是否异步。
     xhr.open('GET', 'http://hmajax.itheima.net/api/city?pname=辽宁省')
     xhr.addEventListener('loadend', () => {
       console.log(xhr.response) //JSON 字符串
