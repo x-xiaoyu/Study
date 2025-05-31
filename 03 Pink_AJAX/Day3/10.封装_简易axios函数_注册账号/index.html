@@ -42,12 +42,12 @@
           xhr.setRequestHeader('Content-Type', 'application/json')
           xhr.send(jsonStr)
         } else {
-          // 如果没有请求体数据，正常的发起请求
+          // 如果没有请求体数据，正常的发起请求 
           xhr.send()
         }
       })
     }
-  
+
     document.querySelector('.reg-btn').addEventListener('click', () => {
       // 3. 使用myAxios函数，完成注册用户
       myAxios({
