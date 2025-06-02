@@ -29,18 +29,18 @@
      * 目标：演示回调函数地狱
      * 需求：获取默认第一个省，第一个市，第一个地区并展示在下拉菜单中
      * 概念：在回调函数中嵌套回调函数，一直嵌套下去就形成了回调函数地狱
-     * 缺点：可读性差，异常无法获取，耦合性严重，牵一发动全身
+     * 缺点：可读性差，异常无法获取，耦合性严重，牵一发动全身 
     */
     // 1. 获取默认第一个省份的名字
-    axios({url: 'http://hmajax.itheima.net/api/province'}).then(result => {
+    axios({ url: 'http://hmajax.itheima.net/api/province' }).then(result => {
       const pname = result.data.list[0]
       document.querySelector('.province').innerHTML = pname
       // 2. 获取默认第一个城市的名字
-      axios({url: 'http://hmajax.itheima.net/api/city', params: { pname }}).then(result => {
+      axios({ url: 'http://hmajax.itheima.net/api/city', params: { pname } }).then(result => {
         const cname = result.data.list[0]
         document.querySelector('.city').innerHTML = cname
         // 3. 获取默认第一个地区的名字
-        axios({url: 'http://hmajax.itheima.net/api/area', params: { pname, cname }}).then(result => {
+        axios({ url: 'http://hmajax.itheima.net/api/area', params: { pname, cname } }).then(result => {
           console.log(result)
           const areaName = result.data.list[0]
           document.querySelector('.area').innerHTML = areaName
