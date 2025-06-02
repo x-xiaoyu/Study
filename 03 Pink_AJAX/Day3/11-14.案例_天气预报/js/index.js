@@ -111,7 +111,7 @@ getWeather('110100')
  *  2.1 绑定input事件，获取关键字
  *  2.2 获取展示城市列表数据
  */
-// 2.1 绑定input事件，获取关键字
+// 2.1 绑定input事件，获取关键字 
 document.querySelector('.search-city').addEventListener('input', (e) => {
   console.log(e.target.value)
   // 2.2 获取展示城市列表数据
