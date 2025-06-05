@@ -16,11 +16,16 @@
     3. 创建实例
     4. 添加配置项=> 完成渲染
   -->
+  <div class="box2"></div>
+  <div class="box"></div>
 
   <div id="app">
     <!-- 这里将来会编写一些用于渲染的代码逻辑 -->
     <!-- {{把想要渲染的数据写在这里}} -->
-    {{msg}}
+    <!-- {{msg}}
+    {{count}} -->
+    <h1> {{msg}}</h1>
+    {{count}}
   </div>
   <!-- 在线地址引入vue2包 开发版本 包含完整的注释和警告 -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
@@ -34,7 +39,8 @@
       el: '#app',
       // 通过data提供渲染数据
       data: {
-        msg: 'Hello 黑马'
+        msg: 'Hello 黑马',
+        count: 666
       }
     })
 
