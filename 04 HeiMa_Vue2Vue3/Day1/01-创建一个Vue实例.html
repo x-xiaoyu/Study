@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day1 -创建一个Vue实例
+  </title>
+</head>
+
+<body>
+  <!-- 创建Vue实例，初始化渲染
+    1. 准备容器（vue所管理的范围
+    2. 引包（1. 引入开发版本的包 2. 引入生产版本的包 有区别） 官网查找
+    3. 创建实例
+    4. 添加配置项=> 完成渲染
+  -->
+
+  <div id="app">
+    <!-- 这里将来会编写一些用于渲染的代码逻辑 -->
+    <!-- {{把想要渲染的数据写在这里}} -->
+    {{msg}}
+  </div>
+  <!-- 在线地址引入vue2包 开发版本 包含完整的注释和警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+  <!-- 创建实例 -->
+  <script>
+    // 一旦引入vueJS核心包，在全局环境，就有了vue构造函数
+    // el是管理各种div盒子
+    const app = new Vue({
+      // 通过el配置选择器， 指定vue管理的是哪个盒子
+      el: '#app',
+      // 通过data提供渲染数据
+      data: {
+        msg: 'Hello 黑马'
+      }
+    })
+
+
+
+  </script>
+
+
+
+</body>
+
+</html>
