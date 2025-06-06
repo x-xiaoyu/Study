@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <div id="app">
-    <button>切换显示隐藏</button>
-    <h1>黑马程序员</h1>
+    <button @click="fn">切换显示隐藏</button>
+    <h1 v-show="isShow">黑马程序员</h1>
   </div>
   <script src="./vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        
+        isShow: false
+      },
+      methods: {
+        fn() {
+          // console.log('执行了fn'); 测试是否能执行fn方法
+          // console.log('执行了fn'，app.isShow); 测试是否能拿到isShow 因为isShow挂载到了app上 所以可用app.isShow调用
+          // 来回切换取反就可以了
+          // app.isShow = !app.isShow
+
+          // vue让提供的所有methods中的函数，this都指向当前实例（this指向new vue）
+          // console.log(app === this); //true
+
+          // 所以可以把app换成this
+          this.isShow = !this.isShow
+        }
       }
     })
   </script>
 </body>
+
 </html>
