@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <div id="app">
+    <!-- 图片路径写死了 但现实是动态的变动 -->
+    <!-- <img src="imgs/10-01.png" alt=""> -->
+    <!-- <img v-bind:src="imgUrl" v-bind:title="msg" alt=""> -->
+    <!-- 可以简写 从v-bind:xxx 变成:xxx -->
+    <img :src="imgUrl" :title="msg" alt="">
 
   </div>
   <script src="./vue.js"></script>
@@ -15,10 +22,14 @@
     const app = new Vue({
       el: '#app',
       data: {
-        
+        imgUrl: 'imgs/10-01.png',
+        // 一定要定义 不定义就会报错 上下对齐
+        msg: 'hello 波仔'
+
       }
     })
 
   </script>
 </body>
+
 </html>
