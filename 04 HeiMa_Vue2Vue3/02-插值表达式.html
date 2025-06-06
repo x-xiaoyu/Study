@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+  插值表达式：Vue的一种模版语法
+  作用:利用表达式进行差值渲染
+  语法： {{表达式}}
+  -->
+  <div id="app">
+    <p>{{nickname}}</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        nickname: 'tony',
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>
