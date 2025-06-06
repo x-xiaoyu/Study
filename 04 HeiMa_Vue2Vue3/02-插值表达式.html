@@ -19,7 +19,7 @@
   注意点：
   1. 使用的数据要存在
   2. 支持的表达式，不是语句 if for
-  3. 不能再标签属性中使用{{}}
+  3. 不能再标签属性中使用{{}} 
    -->
   <div id="app">
     <!-- 只要可以求得结果的 都可以往这里加 -->
@@ -29,6 +29,7 @@
     <p>{{age >= 18? '成年': '未成年'}}</p>
     <p>{{friend.name}}</p>
     <p>{{friend.desc}}</p>
+    <!-- <p title="{{这个是不可以的}}"></p> -->
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
