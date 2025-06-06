@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
 
   <div id="app">
     <h3>小黑的书架</h3>
     <ul>
-      <li>
-        <span>《红楼梦》</span>
-        <span>曹雪芹</span>
-        <button>删除</button>
+      <!-- 基本渲染 li会渲染多次 所以v-for会加到这里 -->
+      <li v-for="(item,index) in booksList" :key="item.id">
+        <!-- item就是项目 然后item.xx就会获取 -->
+        <span>{{item.name}}</span>
+        <span>{{item.author}}</span>
+
+        <!-- 注册点击事件 通过id进行删除数组中的对应项 （优先使用id删除）-->
+        <button @click="del(item.id)">删除</button>
       </li>
     </ul>
   </div>
@@ -29,8 +35,21 @@
           { id: 3, name: '《水浒传》', author: '施耐庵' },
           { id: 4, name: '《三国演义》', author: '罗贯中' }
         ]
+      },
+      methods: {
+        del(id) {
+          // console.log('删除',id); //确保能触发
+          // 根据id进行删除数字中的对应项 filter(不会改变原数组)
+          // filter 根据条件，保留满足条件的对应项， 得到一个新数组
+          //console.log(this.booksList.filter(item => item.id !== id)); //只会处理这一条 不会处理其他的
+          // 赋值给原数组（更新）
+          this.booksList = this.booksList.filter(item => item.id !== id)
+
+
+        }
       }
     })
   </script>
 </body>
+
 </html>
