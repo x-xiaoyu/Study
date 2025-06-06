@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,22 +19,31 @@
     }
   </style>
 </head>
+
 <body>
+  <!-- 
+    v-show底层原理：切换 css 的Display：none来控制显示隐藏
+    v-if底层原理： 根据判断条件 控制元素的创建和移除（条件渲染）
+  
+  -->
 
   <div id="app">
-    <div class="box">我是v-show控制的盒子</div>
-    <div class="box">我是v-if控制的盒子</div>
+    <div v-show="flag" class="box">我是v-show控制的盒子</div>
+    <div v-if="flag" class="box">我是v-if控制的盒子</div>
   </div>
-  
+
   <script src="./vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
+        // false 隐藏
+        // true 显示
         flag: false
       }
     })
   </script>
 
 </body>
+
 </html>
