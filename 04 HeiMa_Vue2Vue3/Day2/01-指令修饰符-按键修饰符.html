@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <div id="app">
-    <h3>@keyup.enter  →  监听键盘回车事件</h3>
-    <input v-model="username" type="text">
+    <h3>@keyup.enter → 监听键盘回车事件</h3>
+    <input @keyup.enter="fn" v-model="username" type="text">
   </div>
   <script src="./vue.js"></script>
   <script>
@@ -19,9 +21,19 @@
         username: ''
       },
       methods: {
-        
+        fn(e) {
+          // 下面这个整体判断就是.enter封装的东西 不用再去自己写了
+          // // console.log(e); //测试是否能拿到事件e（形参）
+          // // 确保是按了回车之后才会触发 而不是输入一下 就触发一次
+          // if (e.key === 'Enter') {
+          //   console.log('键盘回车的时候触发', this.username);
+          // }
+          console.log('键盘回车的时候触发', this.username);
+
+        }
       }
     })
   </script>
 </body>
+
 </html>
