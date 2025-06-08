@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,11 +11,13 @@
       margin: 0;
       padding: 0;
     }
+
     ul {
       display: flex;
       border-bottom: 2px solid #e01222;
       padding: 0 10px;
     }
+
     li {
       width: 100px;
       height: 50px;
@@ -22,26 +25,32 @@
       list-style: none;
       text-align: center;
     }
+
     li a {
       display: block;
       text-decoration: none;
       font-weight: bold;
       color: #333333;
     }
+
     li a.active {
       background-color: #e01222;
       color: #fff;
     }
-
   </style>
 </head>
+
 <body>
 
   <div id="app">
     <ul>
-      <li><a class="active" href="#">京东秒杀</a></li>
-      <li><a href="#">每日特价</a></li>
-      <li><a href="#">品类秒杀</a></li>
+      <!--3.  :class="{active:index === activeIndex}" 意思是当前遍历list里的if和记录里的activeIndex是否一致 如果一致 就高亮 -->
+      <!-- 4. 点击进行绑定 那就是把点击的这个index  赋值给记录这个index 就可以点击谁 谁就高亮了-->
+      <li v-for="(item,index) in list" :key='item.id' @click="activeIndex = index"><a
+          :class="{active:index === activeIndex}" href="#">{{item.name}}</a></li>
+      <!-- 1. 因为不要写死 要基于li进行动态渲染 所以不需要这么多li了 -->
+      <!-- <li><a href="#">每日特价</a></li>
+      <li><a href="#">品类秒杀</a></li> -->
     </ul>
   </div>
   <script src="./vue.js"></script>
@@ -49,7 +58,7 @@
     const app = new Vue({
       el: '#app',
       data: {
-        
+        activeIndex: 1,//2. 记录高亮 当前list里的第一项进行高亮显示
         list: [
           { id: 1, name: '京东秒杀' },
           { id: 2, name: '每日特价' },
@@ -60,4 +69,5 @@
     })
   </script>
 </body>
+
 </html>
