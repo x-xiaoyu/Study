@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +14,15 @@
     }
   </style>
 </head>
+
 <body>
   <div id="app">
-    <div class="box"></div>
+    <!-- 加上style :style="{xxxx:'',xxx:''}" -->
+    <div class="box" :style="{width:'400px', height:'400px'}"></div>
+    <!-- 因为js里是没有xxx-xxx的 所以解决办法有两个 一个是加单引号 一个是驼峰命名 -->
+    <div class="box" :style="{'background-color': 'green'}"></div>
+    <div class="box" :style="{backgroundColor: 'green'}"></div>
+
   </div>
   <script src="./vue.js"></script>
   <script>
@@ -27,4 +34,5 @@
     })
   </script>
 </body>
+
 </html>
