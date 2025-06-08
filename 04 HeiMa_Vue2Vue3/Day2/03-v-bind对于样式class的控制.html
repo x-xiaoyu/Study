@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,20 +14,27 @@
       font-size: 30px;
       margin-top: 10px;
     }
+
     .pink {
       background-color: pink;
     }
+
     .big {
       width: 300px;
       height: 300px;
     }
   </style>
 </head>
+
 <body>
 
   <div id="app">
-    <div class="box">黑马程序员</div>
-    <div class="box">黑马程序员</div>
+    <!-- 一般是这么加属性的 -->
+    <div class="box pink big">黑马程序员</div>
+    <!-- 不想写死 就用:class -->
+    <div class="box" :class="{pink:true, big:false}">黑马程序员</div>
+    <!-- 第二个写法 -->
+    <div class="box" :class="[pink,big]">黑马程序员</div>
   </div>
   <script src="./vue.js"></script>
   <script>
@@ -38,4 +46,5 @@
     })
   </script>
 </body>
+
 </html>
