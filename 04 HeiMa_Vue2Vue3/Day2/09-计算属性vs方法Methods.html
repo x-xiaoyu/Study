@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,12 +12,16 @@
       text-align: center;
       width: 300px;
     }
-    th,td {
+
+    th,
+    td {
       border: 1px solid #000;
     }
+
     h3 {
       position: relative;
     }
+
     span {
       position: absolute;
       left: 145px;
@@ -31,10 +36,18 @@
     }
   </style>
 </head>
+
 <body>
 
   <div id="app">
-    <h3>小黑的礼物清单🛒<span>?</span></h3>
+    <!-- 直接使用下面的computed属性 -->
+    <h3>小黑的礼物清单🛒<span>{{totalCountFn()}}</span></h3>
+    <h3>小黑的礼物清单🛒<span>{{totalCountFn()}}</span></h3>
+    <h3>小黑的礼物清单🛒<span>{{totalCountFn()}}</span></h3>
+    <!-- <h3>小黑的礼物清单🛒<span>{{totalCount}}</span></h3>
+    <h3>小黑的礼物清单🛒<span>{{totalCount}}</span></h3>
+    <h3>小黑的礼物清单🛒<span>{{totalCount}}</span></h3>
+    <h3>小黑的礼物清单🛒<span>{{totalCount}}</span></h3> -->
     <table>
       <tr>
         <th>名字</th>
@@ -46,7 +59,8 @@
       </tr>
     </table>
 
-    <p>礼物总数：{{ totalCount }} 个</p>
+    <!-- <p>礼物总数：{{ totalCount }} 个</p> -->
+    <p>礼物总数：{{ totalCountFn() }} 个</p>
   </div>
   <script src="./vue.js"></script>
   <script>
@@ -60,13 +74,26 @@
           { id: 3, name: '铅笔', num: 5 },
         ]
       },
-      computed: {
-        totalCount () {
+      // 如果想使用method方法的话 性能不好
+      methods: {
+        totalCountFn() {
+          console.log('methods 方法');
           let total = this.list.reduce((sum, item) => sum + item.num, 0)
           return total
         }
+      },
+      computed: {
+        // // 计算属性：有缓存的 一旦计算出来结果，就会立刻缓存
+        // // 下一次读取 直接读缓存就行 性能特别高
+        // // 改了数字之后 会重新计算 console还是执行一次 依赖没变
+        // totalCount() {
+        //   console.log('计算属性执行了'); //执行了一次 购物车用了五次 但computed是拿缓存的
+        //   let total = this.list.reduce((sum, item) => sum + item.num, 0)
+        //   return total
+        // }
       }
     })
   </script>
 </body>
+
 </html>
