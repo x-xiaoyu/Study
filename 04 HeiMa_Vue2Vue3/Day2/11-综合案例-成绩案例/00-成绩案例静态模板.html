@@ -109,7 +109,10 @@
           return this.list.reduce((sum, item) => sum + item.score, 0)
         },
         averageScore() {
-          return (this.totalScore / this.list.length).toFixed() //保留两位小数
+          if (this.list.length === 0) {
+            return 0
+          }
+          return (this.totalScore / this.list.length).toFixed(2) //保留两位小数
         }
       },
       methods: {
