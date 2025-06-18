@@ -48,15 +48,18 @@
             <div class="td">{{item.price}}</div>
             <div class="td">
               <div class="my-input-number">
-                <button class="decrease"> - </button>
+                <!-- 2.3 当数量小于1的时候 就禁用了 -->
+                <button :disabled="item.num <= 1" class="decrease" @click="sub(item.id)"> - </button>
                 <!-- 1.5 根据数据渲染价格 -->
                 <span class="my-input__inner">{{item.num}}</span>
-                <button class="increase"> + </button>
+                <!-- 2.2 给加减符号 注册点击事件 -->
+                <button class="increase" @click="add(item.id)"> + </button>
               </div>
             </div>
             <!-- 1.6 小计 数量*价格-->
             <div class="td">{{item.num * item.price}}</div>
-            <div class="td"><button>删除</button></div>
+            <!-- 2 删除事件 先注册事件 -->
+            <div class="td"><button @click="del(item.id)">删除</button></div>
           </div>
           <!-- 之后v-for -->
           <!-- <div class="tr">
@@ -137,6 +140,31 @@
           },
         ],
       },
+
+      // 2.1 注册事件
+      methods: {
+        del(id) {
+          this.fruitList = this.fruitList.filter(item => item.id != id)
+        },
+        add(id) {
+          // console.log(id); //验证是否能操作
+          // 1. 根据id找到数组中的对应项 -> find
+          const fruit = this.fruitList.find(item => item.id === id)
+
+          // 2.操作num数量
+          fruit.num++
+
+        },
+        sub(id) {
+          // console.log(id);
+          // 1. 根据id找到数组中的对应项 -> find
+          const fruit = this.fruitList.find(item => item.id === id)
+
+          // 2.操作num数量
+          fruit.num--
+
+        }
+      }
     })
   </script>
 </body>
