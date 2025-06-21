@@ -82,14 +82,16 @@
       <div class="bottom">
         <!-- 全选 -->
         <label class="check-all">
-          <input type="checkbox" />
+          <!-- 4.计算属性 绑定数据-->
+          
+          <input type="checkbox" v-model="isAll"/>
           全选
         </label>
         <div class="right-box">
           <!-- 所有商品总价 -->
-          <span class="price-box">总价&nbsp;&nbsp;:&nbsp;&nbsp;¥&nbsp;<span class="price">24</span></span>
+          <span class="price-box">总价&nbsp;&nbsp;:&nbsp;&nbsp;¥&nbsp;<span class="price">{{totalPrice}}</span></span>
           <!-- 结算按钮 -->
-          <button class="pay">结算( 6 )</button>
+          <button class="pay">结算( {{totalCount}} )</button>
         </div>
       </div>
     </div>
@@ -98,12 +100,54 @@
   </div>
   <script src="../vue.js"></script>
   <script>
+    // 设置默认数组
+    // const defaultArr = [
+    //       {
+    //         id: 1,
+    //         icon: '../img/dragonfruit.png',
+    //         isChecked: true,
+    //         num: 2,
+    //         price: 6,
+    //       },
+    //       {
+    //         id: 2,
+    //         icon: '../img/lychee.png',
+    //         isChecked: false,
+    //         num: 7,
+    //         price: 20,
+    //       },
+    //       {
+    //         id: 3,
+    //         icon: '../img/durian.png',
+    //         isChecked: false,
+    //         num: 3,
+    //         price: 40,
+    //       },
+    //       {
+    //         id: 4,
+    //         icon: '../img/pear.png',
+    //         isChecked: true,
+    //         num: 10,
+    //         price: 3,
+    //       },
+    //       {
+    //         id: 5,
+    //         icon: '../img/cherry.png',
+    //         isChecked: false,
+    //         num: 20,
+    //         price: 34,
+    //       },
+    //     ]
     const app = new Vue({
       el: '#app',
       data: {
+
         // 水果列表
-        fruitList: [
-          {
+        // 5.读取更新后的数组
+        // fruitList: JSON.parse(localStorage.getItem('list'))
+
+        fruitList:[
+       {
             id: 1,
             icon: '../img/dragonfruit.png',
             isChecked: true,
@@ -138,7 +182,53 @@
             num: 20,
             price: 34,
           },
-        ],
+        ]
+      },
+      // 4.1 计算属性 
+      // 默认计算属性 只能获取get 不能设置set，要设置需要写完整写法
+      computed: {
+        isAll:{
+          // // 代表最终返回值是true 全选按钮就选中了
+          // return true
+          // 必须所有的小选框都选中，全选按钮才选中 every 必须所有都满足条件
+          // return this.fruitList.every(item => item.isChecked)
+
+          // 完整写法 = get+set
+           get(){
+            return this.fruitList.every(item => item.isChecked)
+           },
+           set(value){
+            // value是复选框的布尔值
+            // console.log(value);
+
+            // 基于拿到的布尔值，要让所有的小选框 同步状态
+            this.fruitList.forEach(item => item.isChecked = value)
+           }
+        },
+
+        // 5.统计总价 reduce
+        // 统计总数
+        totalCount(){
+          return this.fruitList.reduce((sum,item) => {
+            if(item.isChecked){
+              // 选中-> 需要累加
+              return sum + item.num
+            }else{
+              // 没选中 ->不需要累加
+              return sum
+            }
+          },0)
+        },
+        // 统计选中的总价 num*price
+        totalPrice(){
+          return this.fruitList.reduce((sum, item) =>{
+            if(item.isChecked){
+              return sum+item.num *item.price
+            }else{
+              return sum
+            }
+          },0)
+        }
       },
 
       // 2.1 注册事件
@@ -163,6 +253,18 @@
           // 2.操作num数量
           fruit.num--
 
+        }
+      },
+// 6. 数据持久化
+      watch: {
+        fruitList:{
+          deep:true,
+          // 一旦接收到新的数据变化 handler就会执行
+          handler(newValue){
+            // console.log(newValue);
+            // 需要将变化后的 newValue 存入本地（转json）
+            localStorage.setItem('list', JSON.stringify(newValue))
+          }
         }
       }
     })
