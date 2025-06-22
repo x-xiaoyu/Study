@@ -138,15 +138,7 @@
     //         price: 34,
     //       },
     //     ]
-    const app = new Vue({
-      el: '#app',
-      data: {
-
-        // 水果列表
-        // 5.读取更新后的数组
-        // fruitList: JSON.parse(localStorage.getItem('list'))
-
-        fruitList:[
+    const defaultArr = [
        {
             id: 1,
             icon: '../img/dragonfruit.png',
@@ -183,6 +175,16 @@
             price: 34,
           },
         ]
+    const app = new Vue({
+      el: '#app',
+      data: {
+
+        // 水果列表
+        // 5.读取更新后的数组
+        // fruitList: JSON.parse(localStorage.getItem('list'))
+        // 这样首次加载时如果没有 list 数据，就会加载默认数组。
+        fruitList: JSON.parse(localStorage.getItem('list')) || defaultArr
+
       },
       // 4.1 计算属性 
       // 默认计算属性 只能获取get 不能设置set，要设置需要写完整写法
@@ -261,7 +263,7 @@
           deep:true,
           // 一旦接收到新的数据变化 handler就会执行
           handler(newValue){
-            // console.log(newValue);
+            // console.log(newValue); newValue目前是复杂类型
             // 需要将变化后的 newValue 存入本地（转json）
             localStorage.setItem('list', JSON.stringify(newValue))
           }
