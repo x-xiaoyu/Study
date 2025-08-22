@@ -11,7 +11,7 @@
     />
     <style>
       .red {
-        color: red!important;
+        color: red !important;
       }
       .search {
         width: 300px;
@@ -36,7 +36,7 @@
         flex: 1;
         padding: 0 30px;
       }
-      .list-box  a {
+      .list-box a {
         text-decoration: none;
       }
       .echarts-box {
@@ -67,12 +67,26 @@
       <div class="contain">
         <!-- 左侧列表 -->
         <div class="list-box">
-
           <!-- 添加资产 -->
           <form class="my-form">
-            <input type="text" class="form-control" placeholder="消费名称" />
-            <input type="text" class="form-control" placeholder="消费价格" />
-            <button type="button" class="btn btn-primary">添加账单</button>
+            <!-- v-model绑定list 实现双向绑定-->
+            <!-- .trim首尾空格 -->
+            <input
+              v-model.trim="name"
+              type="text"
+              class="form-control"
+              placeholder="消费名称"
+            />
+            <input
+              v-model.number="price"
+              type="text"
+              class="form-control"
+              placeholder="消费价格"
+            />
+            <!-- 给按钮注册点击事件 发送请求 进行添加功能 -->
+            <button @click="add" type="button" class="btn btn-primary">
+              添加账单
+            </button>
           </form>
 
           <table class="table table-hover">
@@ -85,51 +99,211 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>帽子</td>
-                <td>99.00</td>
-                <td><a href="javascript:;">删除</a></td>
+              <tr v-for="(item,index) in list" :key="item.id">
+                <td>{{index+1}}</td>
+                <td>{{item.name}}</td>
+                <!-- red类 全体变红 class="red"-->
+                <td :class="{red: item.price > 100}">
+                  {{item.price.toFixed(2)}}
+                </td>
+                <!-- 删除：添加事件监听 通过id进行删除 -->
+                <td><a @click="del(item.id)" href="javascript:;">删除</a></td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td>2</td>
                 <td>大衣</td>
                 <td class="red">199.00</td>
                 <td><a href="javascript:;">删除</a></td>
-              </tr>
+              </tr> -->
             </tbody>
             <tfoot>
               <tr>
-                <td colspan="4">消费总计： 298.00</td>
+                <!-- 更新总价值 要用计算属性 computed -->
+                <td colspan="4">消费总计： {{totalPrice.toFixed(2)}}</td>
               </tr>
             </tfoot>
           </table>
         </div>
-        
+
         <!-- 右侧图表 -->
         <div class="echarts-box" id="main"></div>
       </div>
     </div>
+    <!-- 引包三件套 echarts vue axios -->
     <script src="../echarts.min.js"></script>
     <script src="../vue.js"></script>
+    <script>
+      Vue.config.devtools = true;
+    </script>
     <script src="../axios.js"></script>
+
     <script>
       /**
        * 接口文档地址：
+       * 因为接口比较多 所以直接做成了文档
        * https://www.apifox.cn/apidoc/shared-24459455-ebb1-4fdc-8df8-0aff8dc317a8/api-53371058
-       * 
+       *
        * 功能需求：
        * 1. 基本渲染
+       *    1）立刻发送请求获取数据 在created里发送
+       *    2）拿到数据，存到data的响应式数据中（代码里的data）
+       *    3）结合数据，进行渲染 v-for
+       *    4）消费统计 => 计算属性compute
        * 2. 添加功能
+       *    1) 收集表单数据 v-model 绑定表单 在data里新建name和price
+       *    2）给添加按钮注册点击事件addclick，发送添加请求
+       *    3）需要重新渲染（因为后端刚更新完数据 前端也需要按照数据渲染出来新添加的东西
+       *
        * 3. 删除功能
+       *    1)注册点击事件，传参数 传id
+       *    2） 根据 id发送删除请求
+       *    3） 需要重新渲染
+       *
        * 4. 饼图渲染
+       *    1）在dom初始化渲染完 初始化一个饼图 echarts 在mounted钩子实现
+       *    2）根据数据实时更新饼图 echarts.setOption({...})
        */
       const app = new Vue({
-        el: '#app',
+        el: "#app",
         data: {
-          
+          list: [],
+          name: "",
+          price: "",
         },
-      })
+        computed: {
+          totalPrice() {
+            return this.list.reduce((sum, item) => sum + item.price, 0);
+          },
+        },
+        created() {
+          // const res = await axios.get(
+          //   "https://applet-base-api-t.itheima.net/bill",
+          //   {
+          //     params: {
+          //       creator: "小黑",
+          //     },
+          //   }
+          // );
+          // // 1. 打印res 获取数据
+          // console.log(res);
+          // // 2.存数据
+          // this.list = res.data.data;
+
+          // 因为封装了渲染请求 操作完会直接清空页面 所以第一步是直接访问数据
+          this.getList();
+        },
+
+        mounted() {
+          //把let改成this 挂载到vue上 所有成员都可以访问
+          this.myChart = echarts.init(document.querySelector("#main"));
+          this.myChart.setOption({
+            // text标题 left控制居中
+            title: {
+              text: "消费账单列表",
+              left: "center",
+            },
+            // tooltip提示框 当鼠标放在饼图上的
+            tooltip: {
+              trigger: "item",
+            },
+            // 图例 左边什么颜色 什么类
+            legend: {
+              orient: "vertical",
+              left: "left",
+            },
+            // 数据 name是当把鼠标放上去 然后上面title的地方 radius 圆半径 value 价格 name消费名称 data需要动态设置
+            series: [
+              {
+                name: "消费账单",
+                type: "pie",
+                radius: "50%",
+                data: [
+                  // { value: 1048, name: "球鞋" },
+                  // { value: 735, name: "防晒霜" },
+                  // { value: 580, name: "Email" },
+                  // { value: 484, name: "Union Ads" },
+                  // { value: 300, name: "Video Ads" },
+                ],
+                emphasis: {
+                  itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: "rgba(0, 0, 0, 0.5)",
+                  },
+                },
+              },
+            ],
+          });
+        },
+        // 添加事件监听 要去接口文档里看请求方式：post 请求url 添加账单
+        methods: {
+          async getList() {
+            const res = await axios.get(
+              "https://applet-base-api-t.itheima.net/bill",
+              {
+                params: {
+                  creator: "小黑",
+                },
+              }
+            );
+            this.list = res.data.data;
+
+            //第四步饼图 更新图标 覆盖哪个就写哪个（之前模版里比如有八个 你就想更新1个 这个就是替换那一个的地方
+            // 之前没有挂载到vue上 所以不能跨域调用 改成this了就可以调用了
+            this.myChart.setOption({
+              series: [
+                {
+                  // 没有更改的部分 可以不用再传了 所以 == 只需要data部分
+                  // data: [
+                  //   { value: 1048, name: "球鞋" },
+                  //   { value: 735, name: "防晒霜" },
+                  // ],
+                  //解构 加括号是因为会误以为是代码段 加了括号就知道是一个对象
+                  data: this.list.map((item) => ({
+                    value: item.price,
+                    name: item.name,
+                  })),
+                },
+              ],
+            });
+          },
+          async add() {
+            if (!this.name) {
+              alert("请输入消费名称");
+              return;
+            }
+            if (typeof this.price !== "number") {
+              alert("请输入正确的消费价格");
+              return;
+            }
+
+            // 发送添加请求
+            const res = await axios.post(
+              "https://applet-base-api-t.itheima.net/bill",
+              {
+                creator: "小黑",
+                name: this.name,
+                price: this.price,
+              }
+            );
+            // console.log(res);
+            // 重新渲染一次
+            this.getList();
+
+            this.name = "";
+            this.price = "";
+          },
+          async del(id) {
+            // 根据id发送删除请求
+            const res = await axios.delete(
+              `https://applet-base-api-t.itheima.net/bill/${id}`
+            );
+            console.log(res);
+            // 重新渲染
+            this.getList();
+          },
+        },
+      });
     </script>
   </body>
 </html>
