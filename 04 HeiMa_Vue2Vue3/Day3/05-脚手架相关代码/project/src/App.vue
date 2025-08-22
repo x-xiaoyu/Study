@@ -1,21 +1,23 @@
 <template>
-  <div class="App">我是首页</div>
-  <!-- 快捷链接 -->
-  <XtxShortCut></XtxShortCut>
-  <!-- 顶部导航 -->
-  <XtxHeaderNav></XtxHeaderNav>
-  <!-- 轮播区域 -->
-  <XtxBanner></XtxBanner>
-  <!-- 新鲜好物 -->
-  <XtxNewGoods></XtxNewGoods>
-  <!-- 热门品牌 -->
-  <XtxHotBrand></XtxHotBrand>
+  <div class="App">
+      <!-- 快捷链接 -->
+      <XtxShortCut></XtxShortCut>
+      <!-- 顶部导航 -->
+      <XtxHeaderNav></XtxHeaderNav>
+      <!-- 轮播区域 -->
+      <XtxBanner></XtxBanner>
+      <!-- 新鲜好物 -->
+      <XtxNewGoods></XtxNewGoods>
+      <!-- 热门品牌 -->
+      <XtxHotBrand></XtxHotBrand>
 
-  <!-- 最新专题 -->
-  <XtxTopic></XtxTopic>
+      <!-- 最新专题 -->
+      <XtxTopic></XtxTopic>
 
-  <!-- 版权底部 -->
-  <XtxFooter></XtxFooter>
+      <!-- 版权底部 -->
+      <XtxFooter></XtxFooter>
+  </div>
+ 
 
 </template>
 
