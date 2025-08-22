@@ -1,6 +1,7 @@
 <template>
   <div class="hm-main">
     我是hm main
+    <HmButton></HmButton>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="hm-header">
     我是hm header
+    <HmButton></HmButton>
   </div>
 </template>
 
