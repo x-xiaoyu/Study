@@ -11,6 +11,9 @@ Vue.component('BaseGoodsItem', BaseGoodsItem)
 import BaseBrandItem from './components/BaseBrandItem'
 Vue.component('BaseBrandItem', BaseBrandItem)
 
+import BaseTopicItem from './components/BaseTopicItem'
+Vue.component('BaseTopicItem', BaseTopicItem)
+
 Vue.config.productionTip = false
 
 new Vue({
