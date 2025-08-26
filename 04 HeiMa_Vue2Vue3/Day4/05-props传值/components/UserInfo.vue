@@ -4,7 +4,9 @@
     <div>姓名：{{username}}</div>
     <div>年龄：{{age}}</div>
     <div>是否单身：{{isSingle}}</div>
+    <!-- 从对象里找到数据 -->
     <div>座驾：{{car.brand}}</div>
+    <!-- 把list变成字符 -->
     <div>兴趣爱好：{{hobby.join('、')}}</div>
   </div>
 </template>
